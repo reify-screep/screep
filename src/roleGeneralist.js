@@ -21,7 +21,6 @@ var roleGeneralist = {
 	} else if(state == 'deciding') {
 	    var next = _.shuffle(options)[0];
 	    creep.memory.state = next;
-	    run(creep);
 	}
     }
 };
