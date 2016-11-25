@@ -26,7 +26,7 @@ var roleGeneralist = {
 
 	        if(Memory.lastUpgraded + 1000 < Game.time) {
 	            creep.memory.state = 'upgrading';
-	        } else if(Room.energyCapacityAvailable > Room.energyAvailable) {
+	        } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
 	            creep.memory.state = 'storing';
 	        } else {
 	            var next = _.shuffle(['upgrading', 'building', 'building'])[0];
