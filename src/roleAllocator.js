@@ -18,9 +18,9 @@ roleAllocator = {
 
     currentGeneralistBuild: function() {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
-        if(energyCapacity >= 800) {
+        if(spawnRoomCapacity >= 800) {
             return [WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
-        } else if(energyCapacity >= 550) {
+        } else if(spawnRoomCapacity >= 550) {
             return [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE];
         } else {
             return [WORK,CARRY,MOVE];
