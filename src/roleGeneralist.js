@@ -10,6 +10,7 @@ var roleGeneralist = {
         if(creep.room.name != Memory.home) {
             console.log('help me i am lost - ' + creep.name + ' my home is ' + Memory.home + ' i am in ' + creep.room.name);
             var dest = Game.rooms[Memory.home].controller;
+            console.log('i am going home to ' + dest)
             creep.moveTo(dest);
         } else {
             workersActions.maybeHarvest(creep);
