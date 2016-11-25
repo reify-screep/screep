@@ -73,13 +73,29 @@ workersActions = {
     },
 
     build: function(creep) {
-        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-        if(targets.length) {
-            if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(targets[0]);
+        // try to build item at target, if invalid target, look for ramparts and repair them
+        if(buildTarget in creep.memory && creep.memory.buildTarget != null) {
+            var target = Game.getObjectById(creep.memory.buildTarget);
+            var attempt = creep.build(target);
+            if(attempt == ERR_NOT_IN_RANGE) {
+                creep.moveTo(target);
+            } else if(attempt == ERR_INVALID_TARGET) {
+                var rampart = creep.memory.buildPos.lookFor(LOOK_RAMPART);
+                if(rampart.length > 0) {
+                    creep.repair(rampart[0]);
+                }
+                creep.memory.buildTarget = null;
+                creep.memory.buildPos = null;
             }
         } else {
-            creep.memory.state = 'deciding';
+            // find something to build, and save it as the target
+            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            if(targets.length) {
+                creep.memory.buildTarget = targets[0].id;
+                creep.memory.buildPos = targets[0].pos;
+            } else {
+                creep.memory.state = 'deciding';
+            }
         }
     },
 
