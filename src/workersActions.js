@@ -16,7 +16,7 @@ workersActions = {
             if(!('targetEnergy' in creep.memory) || creep.memory.targetEnergy == null) {
                 workersActions.selectResource(creep);
             }
-            var source = creep.memory.targetEnergy;
+            var source = Game.getObjectById(creep.memory.targetEnergy);
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 console.log(creep.name + ' moving to source ' + source)
                 creep.moveTo(source);
@@ -31,7 +31,7 @@ workersActions = {
             Memory.energySources = {};
             sources = creep.room.find(FIND_SOURCES);
             for (var i=0; i < sources.length; i++) {
-                Memory.energySources[sources[i]] = [];
+                Memory.energySources[sources[i].id] = [];
             }
         }
 
