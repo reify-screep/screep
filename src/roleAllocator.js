@@ -8,14 +8,10 @@
  */
 
 roleAllocator = {
-    //setGoal: function(role, count) {
-    //    store[role] = count;
-    //}
+
     spawnNecessary: function() {
 	var store = {
-	    'harvester': 1,
-	    'upgrader': 1,
-	    'builder': 3,
+	    'generalist': 4,
 	};
 
 	for(role in store) {
