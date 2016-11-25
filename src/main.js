@@ -1,8 +1,4 @@
-var roleHarvester = require('role.harvester');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
-var roleGeneralist = require('role.generalist')
-var roleAllocator = require('manager.role_allocator')
+var roleGeneralist = require('roleGeneralist')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -18,15 +14,7 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
 	var creep = Game.creeps[name];
-	if(creep.memory.role == 'harvester') {
-	    roleHarvester.run(creep);
-	}
-	if(creep.memory.role == 'upgrader') {
-	    roleUpgrader.run(creep);
-	}
-	if(creep.memory.role == 'builder') {
-	    roleBuilder.run(creep);
-	}
+	creep.memory.role == 'generalist'; // remove shortly! bootstrapping.
 	if(creep.memory.role == 'generalist') {
 	    roleGeneralist.run(creep);
 	}

@@ -1,4 +1,4 @@
-var workersActions = require('workers.actions')
+var workersActions = require('workersActions')
 var _ = require('lodash')
 
 var roleGeneralist = {
