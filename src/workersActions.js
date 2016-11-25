@@ -124,15 +124,14 @@ workersActions = {
     },
 
     repairType: function(creep, structureType, percentage) {
-        var targets = creep.room.find(FIND_STRUCTURES, {
+        var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
                 return structure.structureType == structureType && (structure.hits / structure.hitsMax < percentage);
             }
         });
-        if(targets.length > 0) {
-            // unlike other actions, the huge number of repair targets possible could make a huge mess of this!
-            if(creep.repair(targets[0])) {
-                creep.moveTo(targets[0]);
+        if(target != undefined) {
+            if(creep.repair(target)) {
+                creep.moveTo(target);
             }
             return true;
         } else {
