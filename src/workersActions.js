@@ -28,6 +28,12 @@ workersActions = {
 
     selectResource: function(creep) {
 
+        // what is our current adjustment factor, based on how many parallel miners
+        var adjustments = {
+            '57ef9d9586f108ae6e60df7a': 3,
+            '57ef9d9586f108ae6e60df7b': 1,
+        }
+
         // initialize the global registration if it has not been already
         if(!('energySources' in Memory)) {
             Memory.energySources = {};
@@ -42,10 +48,11 @@ workersActions = {
         var lowestSources = [];
         for (var source in Memory.energySources) {
             var currentLength = Memory.energySources[source].length;
-            if(currentLength < lowestCount) {
-                lowestCount = currentLength;
+            var adjusted = currentLength * adjustments[source.id];
+            if(adjusted < lowestCount) {
+                lowestCount = adjusted;
                 lowestSources = [source];
-            } else if(currentLength == lowestCount) {
+            } else if(adjusted == lowestCount) {
                 lowestSources.push(source)
             }
         }
