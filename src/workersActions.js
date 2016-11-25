@@ -84,18 +84,29 @@ workersActions = {
     },
 
     repair: function(creep) {
+        if(!workersActions.repairType(creep, STRUCTURE_RAMPART, .5)) {
+            if(!workersActions.repairType(creep, STRUCTURE_ROAD, .5)) {
+                if(!workersActions.repairType(creep, STRUCTURE_WALL, .01)) {
+                    creep.memory.state = 'deciding';
+                }
+            }
+        }
+    },
+
+    repairType: funtion(creep, structureType, percentage) {
         var targets = creep.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
-                return structure.structureType == STRUCTURE_ROAD && (structure.hitsMax / 2 > structure.hits);
+                return structure.structureType == structureType && (structure.hits / structure.hitsMax < percentage);
             }
         });
         if(targets.length > 0) {
             // unlike other actions, the huge number of repair targets possible could make a huge mess of this!
             if(creep.repair(targets[0])) {
-                creep.moveTo(targets[0])
+                creep.moveTo(targets[0]);
             }
+            return true;
         } else {
-            creep.memory.state = 'deciding';
+            return false;
         }
     },
 
