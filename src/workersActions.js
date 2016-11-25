@@ -18,7 +18,6 @@ workersActions = {
             }
             var source = Game.getObjectById(creep.memory.targetEnergy);
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                console.log(creep.name + ' moving to source ' + source)
                 creep.moveTo(source);
             }
         }
