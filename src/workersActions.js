@@ -60,7 +60,7 @@ workersActions = {
             return source;
         }
 
-    }
+    },
 
     upgrade: function(creep) {
         if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
