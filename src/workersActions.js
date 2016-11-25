@@ -8,6 +8,7 @@ workersActions = {
 
     harvest: function(creep) {
         if(creep.memory.state == 'harvesting' && creep.carry.energy == creep.carryCapacity) {
+            _.pull(Memory.energySources[creep.memory.targetEnergy], creep.name);
             creep.memory.targetEnergy = null;
             creep.memory.state = 'deciding';
         }
