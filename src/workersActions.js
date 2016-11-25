@@ -37,7 +37,7 @@ workersActions = {
         var lowestCount = Infinity;
         var lowestSources = [];
         for (var source in Memory.energySources) {
-            var currentLength = Memory.energySources[source].length();
+            var currentLength = Memory.energySources[source].length;
             if(currentLength < lowestCount) {
                 lowestCount = currentLength;
                 lowestSources = [source];
@@ -47,7 +47,7 @@ workersActions = {
         }
 
         // register the creep on the source
-        if(lowestSources.length() == 1) {
+        if(lowestSources.length == 1) {
             var source = lowestSources[0];
             Memory.energySources[source].push(creep.name)
             creep.memory.targetEnergy = source;
