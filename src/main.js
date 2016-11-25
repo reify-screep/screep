@@ -19,7 +19,9 @@ module.exports.loop = function () {
                 toDelete.push(creeps[i])
             }
         }
-        _.pullAll(creeps, toDelete);
+        for (var i=0; i < toDelete.length; i++) {
+             _.pull(creeps, toDelete[i]);
+        }
     }
 
     roleAllocator.spawnNecessary()
