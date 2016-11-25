@@ -66,6 +66,7 @@ workersActions = {
         } else {
             // todo : replace this random decision with picking the closest
             var source = _.shuffle(lowestSources)[0];
+            console.log('assigning source ' + source + ' to creep ' + creep.name)
             Memory.energySources[source].push(creep.name)
             creep.memory.targetEnergy = source;
             return source;
