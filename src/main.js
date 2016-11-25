@@ -14,7 +14,6 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
 	var creep = Game.creeps[name];
-	creep.memory.role == 'generalist'; // remove shortly! bootstrapping.
 	if(creep.memory.role == 'generalist') {
 	    roleGeneralist.run(creep);
 	}
