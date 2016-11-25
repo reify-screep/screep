@@ -5,6 +5,8 @@ var _ = require('lodash')
 
 module.exports.loop = function () {
 
+    Memory.home = 'W8N67';
+
     garbageCollector.collect()
     roleAllocator.spawnNecessary()
 

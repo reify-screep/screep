@@ -7,6 +7,10 @@ var roleGeneralist = {
     run: function(creep) {
 	    var state = creep.memory.state;
 
+        if(creep.room.name != Memory.home) {
+            console.log('help me i am lost - ' + creep.name)
+        }
+
 	    workersActions.maybeHarvest(creep);
 
 	    if(state == 'harvesting') {
