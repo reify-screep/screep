@@ -1,3 +1,4 @@
+var roleAllocator = require('roleAllocator')
 var roleGeneralist = require('roleGeneralist')
 var _ = require('lodash')
 
