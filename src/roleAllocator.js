@@ -2,7 +2,7 @@ roleAllocator = {
 
     spawnNecessary: function() {
 	    var store = {
-	        'generalist': 4,
+	        'generalist': 6,
 	    };
 
 	    for(role in store) {
