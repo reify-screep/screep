@@ -10,7 +10,7 @@ module.exports.loop = function () {
 	}
     }
 
-    roleAllocator.spawnNecessary()
+    //roleAllocator.spawnNecessary()
 
     for(var name in Game.creeps) {
 	var creep = Game.creeps[name];
