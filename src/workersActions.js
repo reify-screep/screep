@@ -25,7 +25,7 @@ workersActions = {
     selectResource: function(creep) {
 
         // initialize the global registration if it has not been already
-        if(!('energySources' in Memory) {
+        if(!('energySources' in Memory)) {
             Memory.energySources = {};
             sources = creep.room.find(FIND_SOURCES);
             for (var i=0; i < sources.length; i++) {
