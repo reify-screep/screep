@@ -107,9 +107,9 @@ workersActions = {
     },
 
     repair: function(creep) {
-        if(!workersActions.repairType(creep, STRUCTURE_RAMPART, .5)) {
+        if(!workersActions.repairType(creep, STRUCTURE_RAMPART, .25)) {
             if(!workersActions.repairType(creep, STRUCTURE_ROAD, .5)) {
-                if(!workersActions.repairType(creep, STRUCTURE_WALL, .01)) {
+                if(!workersActions.repairType(creep, STRUCTURE_WALL, .0001)) {
                     creep.memory.state = 'deciding';
                 }
             }
