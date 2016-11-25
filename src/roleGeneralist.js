@@ -9,35 +9,36 @@ var roleGeneralist = {
 
         if(creep.room.name != Memory.home) {
             console.log('help me i am lost - ' + creep.name + ' my home is ' + Memory.home + ' i am in ' + creep.room.name);
-            creep.moveTo(Game.rooms[Memory.home].controller);
-        }
+            var dest = Game.rooms[Memory.home].controller;
+            creep.moveTo(dest);
+        } else {
+            workersActions.maybeHarvest(creep);
 
-	    workersActions.maybeHarvest(creep);
+            if(state == 'harvesting') {
+                workersActions.harvest(creep);
+            } else if(state == 'upgrading') {
+                workersActions.upgrade(creep);
+            } else if(state == 'storing') {
+                workersActions.store(creep);
+            } else if(state == 'building') {
+                workersActions.build(creep);
+            } else if(state == 'repairing') {
+                workersActions.repair(creep);
+            } else if(state == 'deciding') {
 
-	    if(state == 'harvesting') {
-    	    workersActions.harvest(creep);
-    	} else if(state == 'upgrading') {
-	        workersActions.upgrade(creep);
-	    } else if(state == 'storing') {
-	        workersActions.store(creep);
-	    } else if(state == 'building') {
-	        workersActions.build(creep);
-	    } else if(state == 'repairing') {
-	        workersActions.repair(creep);
-	    } else if(state == 'deciding') {
+                // always prioritize upgrading if it has not been done recently
+                // otherwise fill up all energy storage
+                // then randomly pick between other worker actions
 
-            // always prioritize upgrading if it has not been done recently
-            // otherwise fill up all energy storage
-            // then randomly pick between other worker actions
-
-	        if(Memory.lastUpgraded + 1000 < Game.time) {
-	            creep.memory.state = 'upgrading';
-	        } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
-	            creep.memory.state = 'storing';
-	        } else {
-	            var next = _.shuffle(['upgrading', 'building', 'building', 'repairing', 'repairing'])[0];
-                creep.memory.state = next;
-	        }
+                if(Memory.lastUpgraded + 1000 < Game.time) {
+                    creep.memory.state = 'upgrading';
+                } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
+                    creep.memory.state = 'storing';
+                } else {
+                    var next = _.shuffle(['upgrading', 'building', 'building', 'repairing', 'repairing'])[0];
+                    creep.memory.state = next;
+                }
+            }
 	    }
     }
 };
