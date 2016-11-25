@@ -83,6 +83,22 @@ workersActions = {
         }
     },
 
+    repair: function(creep) {
+        var targets = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return structure.structureType == STRUCTURE_ROAD && (structure.hitsMax / 2 > structure.hits);
+            }
+        });
+        if(targets.length > 0) {
+            // unlike other actions, the huge number of repair targets possible could make a huge mess of this!
+            if(creep.repair(targets[0])) {
+                creep.moveTo(targets[0])
+            }
+        } else {
+            creep.memory.state = 'deciding';
+        }
+    },
+
     store: function(creep) {
         var targets = creep.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
