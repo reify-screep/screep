@@ -81,7 +81,7 @@ workersActions = {
                 creep.moveTo(target);
             } else if(attempt == ERR_INVALID_TARGET) {
                 var rampart = creep.memory.buildPos.lookFor(LOOK_STRUCTURES);
-                _.remove(rampart, filter: (structure) => {
+                _.remove(rampart, (structure) => {
                     return structure.structureType != STRUCTURE_RAMPART;
                 });
                 if(rampart.length > 0) {
