@@ -93,7 +93,7 @@ workersActions = {
         }
     },
 
-    repairType: funtion(creep, structureType, percentage) {
+    repairType: function(creep, structureType, percentage) {
         var targets = creep.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
                 return structure.structureType == structureType && (structure.hits / structure.hitsMax < percentage);
