@@ -12,7 +12,7 @@ workersActions = {
             creep.memory.state = 'deciding';
         }
         if(creep.memory.state == 'harvesting') {
-            if(!creep.memory.hasOwnProperty('targetEnergy') || creep.memory.targetEnergy == null) {
+            if(!('targetEnergy' in creep.memory) || creep.memory.targetEnergy == null) {
                 workersActions.selectResource(creep);
             }
             var source = creep.memory.targetEnergy;
@@ -25,7 +25,7 @@ workersActions = {
     selectResource: function(creep) {
 
         // initialize the global registration if it has not been already
-        if(!Memory.hasOwnProperty('energySources')) {
+        if(!('energySources' in Memory) {
             Memory.energySources = {};
             sources = creep.room.find(FIND_SOURCES);
             for (var i=0; i < sources.length; i++) {
