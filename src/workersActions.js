@@ -80,7 +80,10 @@ workersActions = {
             if(attempt == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             } else if(attempt == ERR_INVALID_TARGET) {
-                var rampart = creep.memory.buildPos.lookFor(LOOK_RAMPART);
+                var rampart = creep.memory.buildPos.lookFor(LOOK_STRUCTURES);
+                _.remove(rampart, filter: (structure) => {
+                    return structure.structureType != STRUCTURE_RAMPART;
+                });
                 if(rampart.length > 0) {
                     creep.repair(rampart[0]);
                 }
