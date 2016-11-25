@@ -80,15 +80,17 @@ workersActions = {
             if(attempt == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             } else if(attempt == ERR_INVALID_TARGET) {
-                var rampart = creep.memory.buildPos.lookFor(LOOK_STRUCTURES);
-                _.remove(rampart, (structure) => {
-                    return structure.structureType != STRUCTURE_RAMPART;
-                });
-                if(rampart.length > 0) {
-                    creep.repair(rampart[0]);
+                if('buildPos' in creep.memory && creep.memory.buildPos != null) {
+                    var rampart = creep.memory.buildPos.lookFor(LOOK_STRUCTURES);
+                    _.remove(rampart, (structure) => {
+                        return structure.structureType != STRUCTURE_RAMPART;
+                    });
+                    if(rampart.length > 0) {
+                        creep.repair(rampart[0]);
+                    }
+                    creep.memory.buildTarget = null;
+                    creep.memory.buildPos = null;
                 }
-                creep.memory.buildTarget = null;
-                creep.memory.buildPos = null;
             }
         } else {
             // find something to build, and save it as the target
