@@ -125,6 +125,39 @@ workersActions = {
         }
     },
 
+    repairTwo: function(creep) {
+        var repairTargets = [
+            {'target:': STRUCTURE_RAMPART, 'percent': .25, 'max': 50000},
+            {'target:': STRUCTURE_ROAD, 'percent': .5, 'max': Infinity},
+            {'target:': STRUCTURE_TOWER, 'percent': 1, 'max': Infinity},
+            {'target:': STRUCTURE_WALL, 'percent': .0001, 'max': 50000},
+        ];
+        for (var i=0; i < repairTargets.length; i++) {
+            if(workersActions.repairTypeTwo(creep, repairTargets[i])) {
+                break;
+            }
+        }
+        creep.memory.state = 'deciding';
+    },
+
+    repairTypeTwo: function(creep, targetData) {
+        var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return structure.structureType == targetData['target'] &&
+                    (structure.hits / structure.hitsMax < target['percent']) &&
+                    structure.hits < target['max'];
+            }
+        });
+        if(target != undefined) {
+            if(creep.repair(target)) {
+                creep.moveTo(target);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    },
+
     repairType: function(creep, structureType, percentage) {
         var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
