@@ -74,7 +74,7 @@ workersActions = {
 
     build: function(creep) {
         // try to build item at target, if invalid target, look for ramparts and repair them
-        if(buildTarget in creep.memory && creep.memory.buildTarget != null) {
+        if('buildTarget' in creep.memory && creep.memory.buildTarget != null) {
             var target = Game.getObjectById(creep.memory.buildTarget);
             var attempt = creep.build(target);
             if(attempt == ERR_NOT_IN_RANGE) {
