@@ -54,6 +54,8 @@ workersActions = {
 	    if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 		creep.moveTo(targets[0]);
 	    }
+	} else {
+	    creep.memory.state = 'deciding';
 	}
     }
 };
