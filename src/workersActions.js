@@ -1,6 +1,9 @@
 workersActions = {
 
     maybeHarvest: function(creep) {
+        if(creep.memory.state == 'upgrading' && creep.carry.energy == 0) {
+            Memory.lastUpgraded = Game.time;
+        }
         if(creep.memory.state != 'harvesting' && creep.carry.energy == 0) {
             creep.memory.state = 'harvesting';
         }

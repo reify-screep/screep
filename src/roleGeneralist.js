@@ -19,8 +19,19 @@ var roleGeneralist = {
 	    } else if(state == 'building') {
 	        workersActions.build(creep);
 	    } else if(state == 'deciding') {
-	        var next = _.shuffle(options)[0];
-	        creep.memory.state = next;
+
+            // always prioritize upgrading if it has not been done recently.
+            // otherwise fill up all energy storage.
+            // then randomly pick between build and upgrade, slightly biased towards build.
+
+	        if(Memory.lastUpgraded + 1000 < Game.time) {
+	            creep.memory.state = 'upgrading';
+	        } else if(Room.energyCapacityAvailable > Room.energyAvailable) {
+	            creep.memory.state = 'storing';
+	        } else {
+	            var next = _.shuffle(['upgrading', 'building', 'building'])[0];
+                creep.memory.state = next;
+	        }
 	    }
     }
 };
