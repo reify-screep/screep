@@ -9,7 +9,7 @@ roleAllocator = {
 	        var count = store[role];
 	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role);
 	        if(creeps.length < count) {
-		        var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], undefined, {role: role});
+		        var newName = Game.spawns['Spawn1'].createCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: role});
 		        console.log('spawning new ' + role + ': ' + newName);
 	        }
 	    }
