@@ -126,6 +126,7 @@ workersActions = {
     },
 
     repairTwo: function(creep) {
+        console.log(creep.name + ' is about to try to repair');
         var repairTargets = [
             {'target:': STRUCTURE_RAMPART, 'percent': .25, 'max': 50000},
             {'target:': STRUCTURE_ROAD, 'percent': .5, 'max': Infinity},
@@ -134,6 +135,7 @@ workersActions = {
         ];
         for (var i=0; i < repairTargets.length; i++) {
             if(workersActions.repairTypeTwo(creep, repairTargets[i])) {
+                console.log('repaired target type ' + repairTargets[i].target);
                 break;
             }
         }
