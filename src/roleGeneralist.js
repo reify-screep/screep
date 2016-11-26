@@ -24,7 +24,7 @@ var roleGeneralist = {
             } else if(state == 'building') {
                 workersActions.build(creep);
             } else if(state == 'repairing') {
-                workersActions.repairTwo(creep);
+                workersActions.repair(creep);
             } else if(state == 'deciding') {
 
                 // always prioritize upgrading if it has not been done recently
