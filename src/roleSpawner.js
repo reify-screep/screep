@@ -47,7 +47,6 @@ roleSpawner = {
                 build.push(partCode);
             }
         }
-        console.log(build);
         return build;
     },
 
