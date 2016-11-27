@@ -34,7 +34,6 @@ manager = {
 //                            return structure.structureType == STRUCTURE_CONTAINER;
 //                        }
 //                    });
-                    console.log(creep.name + ' nearest container: ' + nearestContainer)
                     creep.memory.assignedStorage = nearestContainer;
                     return true;
                 }
