@@ -21,10 +21,13 @@ var roleWorker = {
             }
 
             if(state == 'pickingUp') {
+                console.log(creep.name + ' picking up')
                 actions.pickupEnergy(creep);
             } else if(state == 'upgrading') {
+                console.log(creep.name + ' upgrading')
                 actions.upgrade(creep);
             } else if(state == 'storing') {
+                console.log(creep.name + ' storing')
                 actions.store(creep);
             } else if(state == 'building') {
                 actions.build(creep);
