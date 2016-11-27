@@ -22,7 +22,7 @@ roleSpawner = {
 	            }
 
 		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
-                if(newName) {
+                if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
                 }
 	        }
