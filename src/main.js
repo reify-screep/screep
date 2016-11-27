@@ -8,12 +8,19 @@ var _ = require('lodash')
 module.exports.loop = function () {
 
     Memory.home = 'W8N68';
+    Memory[Memory.home].spawns = ['Spawn1'];
 
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
     memoryManager.updateResourceStore(Memory.home);
 
-    roleSpawner.run();
+    // temp
+    for(var name in Game.creeps) {
+        Game.creeps[name].memory.home = Memory.home;
+    }
+    // end
+
+    roleSpawner.run(Memory.home);
     roleTower.run(Memory.home);
 
     for(var name in Game.creeps) {

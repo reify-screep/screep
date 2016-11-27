@@ -140,8 +140,8 @@ actions = {
     },
 
     goHome: function(creep) {
-        console.log('help me i am lost - ' + creep.name + ' my home is ' + Memory.home + ' i am in ' + creep.room.name);
-        var dest = Game.rooms[Memory.home].controller;
+        console.log('help me i am lost - ' + creep.name + ' my home is ' + creep.memory.home + ' i am in ' + creep.room.name);
+        var dest = Game.rooms[creep.memory.home].controller;
         console.log('i am going home to ' + dest)
         creep.moveTo(dest);
     },

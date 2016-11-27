@@ -1,6 +1,6 @@
 roleSpawner = {
 
-    run: function() {
+    run: function(roomId) {
 	    var store = {
 	        'harvester': 2,
 	        'worker': 8,
@@ -8,7 +8,7 @@ roleSpawner = {
 
 	    for(role in store) {
 	        var count = store[role];
-	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role);
+	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.home == roomId);
 	        if(creeps.length < count) {
 
 	            var build = undefined;
@@ -20,8 +20,9 @@ roleSpawner = {
 	                    build = roleSpawner.currentWorkerBuild();
 	                    break;
 	            }
+                var spawnName = Memory[roomId].spawns[0];
 
-		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
+		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: roomId});
                 if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
                 }
