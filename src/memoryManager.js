@@ -37,6 +37,9 @@ memoryManager = {
             structureMap[structureType].push(structures[i].id);
         }
 
+        if(Memory[roomId] == undefined) {
+            Memory[roomId] = {};
+        }
         Memory[roomId].structures = structureMap;
 
     },
