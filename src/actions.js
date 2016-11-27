@@ -5,7 +5,7 @@ actions = {
 
     harvest: function(creep) {
         console.log(creep.energy + ' ' + creep.carryCapacity)
-        if(creep.energy == creep.carryCapacity) {
+        if(creep.carry.energy == creep.carryCapacity) {
             console.log('store local')
             actions.storeLocally(creep);
         } else if(creep.memory.assignedResource == undefined) {
