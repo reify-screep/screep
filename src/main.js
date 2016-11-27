@@ -10,7 +10,7 @@ var _ = require('lodash')
 module.exports.loop = function () {
 
     // temp fix
-    var ca = Game.creeps['Landon'];
+    var ca = Game.creeps['London'];
     delete(ca.memory.assignedResource);
     delete(ca.memory.assignedStorage);
     var cb = Game.creeps['Keira'];
