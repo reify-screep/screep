@@ -5,6 +5,12 @@ var roleReserver = {
     run: function(creep) {
 
         var targetRoom = 'W7N69';
+
+        if(Game.rooms[targetRoom] == undefined) {
+            var targetPos = RoomPosition(32, 48, targetRoom);
+            creep.moveTo(targetPos);
+        }
+        
         var controller = Game.rooms[targetRoom].controller;
 
         if (creep.reserveController(controller)) {
