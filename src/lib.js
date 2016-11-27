@@ -9,6 +9,7 @@ lib = {
                return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > targetEnergy;
            }
         });
+    },
 
 }
 

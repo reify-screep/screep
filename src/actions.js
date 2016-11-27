@@ -35,7 +35,7 @@ actions = {
         } else {
             storage = lib.containerWithEnergy(creep.pos, 100);
         }
-    
+
         switch(creep.withdraw(storage, RESOURCE_ENERGY)) {
             case ERR_NOT_IN_RANGE:
                 creep.moveTo(storage);
