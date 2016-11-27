@@ -29,9 +29,9 @@ module.exports.loop = function () {
 	        case 'harvester':
 	            roleHarvester.run(creep);
 	            break;
-//	        case 'reserver':
-//	            roleReserver.run(creep);
-//	            break;
+	        case 'reserver':
+	            roleReserver.run(creep);
+	            break;
 	    }
     }
 }
