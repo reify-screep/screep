@@ -15,11 +15,7 @@ module.exports.loop = function () {
     memoryManager.updateStructureStore(Memory.home);
     memoryManager.updateResourceStore(Memory.home);
 
-    // temp
-    for(var name in Game.creeps) {
-        Game.creeps[name].memory.home = Memory.home;
-    }
-    // end
+    Game.creeps['Chloe'].assignedStorage = '5839c87e3677f25b6a29ad84';
 
     roleSpawner.run(Memory.home);
     roleTower.run(Memory.home);

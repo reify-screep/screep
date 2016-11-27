@@ -25,7 +25,7 @@ manager = {
                             return structure.structureType == STRUCTURE_CONTAINER;
                         }
                     });
-                    creep.memory.assignedStorage = nearestContainer;
+                    creep.memory.assignedStorage = nearestContainer.id;
                     return true;
                 }
             }
