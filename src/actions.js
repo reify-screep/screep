@@ -4,6 +4,7 @@ var manager = require('manager')
 actions = {
 
     harvest: function(creep) {
+        console.log(creep.energy + ' ' + creep.carryCapacity)
         if(creep.energy == creep.carryCapacity) {
             console.log('store local')
             actions.storeLocally(creep);
