@@ -13,7 +13,7 @@ manager = {
                     Memory.assignments = {};
                 }
                 var assignments = Memory.assignments[resources[i].id];
-                if(assignments = undefined) {
+                if(assignments == undefined) {
                     Memory.assignments[resources[i].id] = [];
                     assignments = Memory.assignments[resources[i].id];
                 }
