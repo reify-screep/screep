@@ -9,15 +9,6 @@ var _ = require('lodash')
 
 module.exports.loop = function () {
 
-    // temp fix
-//    var ca = Game.creeps['London'];
-//    delete(ca.memory.assignedResource);
-//    delete(ca.memory.assignedStorage);
-//    var cb = Game.creeps['Keira'];
-//    delete(cb.memory.assignedResource);
-//    delete(cb.memory.assignedStorage);
-//    delete(Memory.assignments);
-
     Memory.home = 'W8N68';
 
     memoryManager.collect();
