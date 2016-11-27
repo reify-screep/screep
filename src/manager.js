@@ -5,8 +5,8 @@ manager = {
 
     getResourceAssignment: function(creep) {
 
-        if(creep.room.id != undefined) {
-            var resources = Memory[creep.room.id].energySources;
+        if(creep.room.name != undefined) {
+            var resources = Memory[creep.room.name].energySources;
 
             for (var i=0; i < resources.length; i++) {
                 var assignments = Memory.assignments[resources[i].id];
@@ -27,7 +27,7 @@ manager = {
     // for now very simple, mimic old logic mostly. next round do job struct?
     assignJob: function(creep) {
 
-        if(Memory[creep.room.id].lastUpgraded + 3000 < Game.time) {
+        if(Memory[creep.room.name].lastUpgraded + 3000 < Game.time) {
             return 'upgrading';
         } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
             return 'storing';
