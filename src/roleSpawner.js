@@ -2,8 +2,8 @@ roleSpawner = {
 
     run: function() {
 	    var store = {
-	        //'worker': 6,
-	        'harvester': 2
+	        'harvester': 2,
+	        'worker': 6,
 	    };
 
 	    for(role in store) {
