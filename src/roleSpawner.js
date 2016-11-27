@@ -2,7 +2,7 @@ roleSpawner = {
 
     run: function() {
 	    var store = {
-	        'worker': 6,
+	        //'worker': 6,
 	        'harvester': 2
 	    };
 
@@ -16,14 +16,13 @@ roleSpawner = {
                     case 'harvester':
                         build = roleSpawner.currentHarvesterBuild();
                         break;
-//	                case 'worker':
-//	                    build = roleSpawner.currentWorkerBuild();
-//	                    break;
+	                case 'worker':
+	                    build = roleSpawner.currentWorkerBuild();
+	                    break;
 	            }
 
 		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
 		        console.log('spawning new ' + role + ': ' + newName);
-		        return;
 	        }
 	    }
     },
