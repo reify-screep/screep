@@ -35,7 +35,7 @@ manager = {
 //                        }
 //                    });
                     console.log(creep.name + ' nearest container: ' + nearestContainer)
-                    creep.memory.assignedStorage = nearestContainer.id;
+                    creep.memory.assignedStorage = nearestContainer;
                 }
                 return true;
             }

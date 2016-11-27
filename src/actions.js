@@ -9,10 +9,10 @@ actions = {
             console.log('store local')
             actions.storeLocally(creep);
         } else if(creep.memory.assignedResource == undefined) {
-            console.log('get assignment')
+            console.log(creep.name + ' get assignment')
             manager.getResourceAssignment(creep);
         } else {
-            console.log('try harvest')
+            console.log(creep.name + ' try harvest')
             console.log(creep.memory.assignedResource)
             var energySource = Game.getObjectById(creep.memory.assignedResource);
             console.log(energySource)
