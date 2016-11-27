@@ -20,12 +20,18 @@ manager = {
                 if(assignments.length == 0) {
                     assignments.push(creep.name)
                     creep.memory.assignedResource = resources[i];
-                    var nearestContainer = Game.getObjectById(resources[i]).pos.findClosestByPath(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            console.log('found structure: ' + structure.structureType + ', ' + (structure.structureType == STRUCTURE_CONTAINER))
-                            return structure.structureType == STRUCTURE_CONTAINER;
-                        }
-                    });
+                    var nearestContainer = null;
+                    if(creep.memory.assignedResource == '57ef9d9586f108ae6e60df7a') {
+                        nearestContainer = '5839c87e3677f25b6a29ad84';
+                    } else if(creep.memory.assignedResource == '57ef9d9586f108ae6e60df7b') {
+                        nearestContainer = '5839dad2f01bb72218b27dfb';
+                    }
+//                    var nearestContainer = Game.getObjectById(resources[i]).pos.findClosestByPath(FIND_STRUCTURES, {
+//                        filter: (structure) => {
+//                            console.log('found structure: ' + structure.structureType + ', ' + (structure.structureType == STRUCTURE_CONTAINER))
+//                            return structure.structureType == STRUCTURE_CONTAINER;
+//                        }
+//                    });
                     console.log('nearest container: ' + nearestContainer)
                     creep.memory.assignedStorage = nearestContainer.id;
                 }
