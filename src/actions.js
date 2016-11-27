@@ -111,7 +111,6 @@ actions = {
                 if(!actions.repairType(creep, STRUCTURE_ROAD, .5)) {
                     if(!actions.repairType(creep, STRUCTURE_TOWER, 1)) {
                         if(!actions.repairType(creep, STRUCTURE_WALL, .0001)) {
-                            console.log(creep.name + ' no repair targets found, giving up');
                             creep.memory.state = 'deciding';
                         }
                     }
@@ -121,7 +120,6 @@ actions = {
     },
 
     repairType: function(creep, structureType, percentage) {
-        console.log(creep.name + ' is repairing ' + structureType);
         var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
                 return structure.structureType == structureType && (structure.hits / structure.hitsMax < percentage);
@@ -129,12 +127,10 @@ actions = {
         });
         if(target != undefined) {
             if(creep.repair(target)) {
-                console.log(creep.name + ' moving to repair target ' + target);
                 creep.moveTo(target);
             }
             return true;
         } else {
-            console.log(creep.name + ' found nothing to repair of type ' + structureType);
             return false;
         }
     },
