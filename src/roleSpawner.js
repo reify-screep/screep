@@ -39,19 +39,19 @@ roleSpawner = {
     currentWorkerBuild: function() {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 4,
                 CARRY: 7,
                 MOVE: 11,
             })
         } else if(spawnRoomCapacity >= 800) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 2,
                 CARRY: 5,
                 MOVE: 7,
             })
         } else if(spawnRoomCapacity >= 550) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 2,
                 CARRY: 3,
                 MOVE: 4,
@@ -64,19 +64,19 @@ roleSpawner = {
     currentHarvesterBuild: function() {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 8,
                 CARRY: 4,
                 MOVE: 6,
             })
         } else if(spawnRoomCapacity >= 800) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 4,
                 CARRY: 4,
                 MOVE: 4,
             })
         } else if(spawnRoomCapacity >= 550) {
-            return assembleBuild({
+            return roleSpawner.assembleBuild({
                 WORK: 3,
                 CARRY: 2,
                 MOVE: 3,
