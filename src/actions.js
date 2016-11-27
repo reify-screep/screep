@@ -5,11 +5,15 @@ actions = {
 
     harvest: function(creep) {
         if(creep.energy == creep.carryCapacity) {
+            console.log('store local')
             actions.storeLocally(creep);
         } else if(creep.memory.assignedResource == undefined) {
+            console.log('get assignment')
             manager.getResourceAssignment(creep);
         } else {
+            console.log('try harvest')
             var energySource = Game.getObjectById(creep.memory.assignedEnergy);
+            console.log(energySource)
             switch(creep.harvest(energySource)) {
                 case ERR_NOT_IN_RANGE:
                     creep.moveTo(energySource);
