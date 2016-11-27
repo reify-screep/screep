@@ -1,6 +1,6 @@
 roleSpawner = {
 
-    spawnNecessary: function() {
+    run: function() {
 	    var store = {
 	        'worker': 6,
 	        'harvester': 2
