@@ -30,7 +30,7 @@ actions = {
     pickupEnergy: function(creep) {
         var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
            filter: (structure) => {
-               return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 100;
+               return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1500;
            }
         });
 
