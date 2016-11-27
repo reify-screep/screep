@@ -12,7 +12,8 @@ actions = {
             manager.getResourceAssignment(creep);
         } else {
             console.log('try harvest')
-            var energySource = Game.getObjectById(creep.memory.assignedEnergy);
+            console.log(creep.memory.assignedResource)
+            var energySource = Game.getObjectById(creep.memory.assignedResource);
             console.log(energySource)
             switch(creep.harvest(energySource)) {
                 case ERR_NOT_IN_RANGE:
