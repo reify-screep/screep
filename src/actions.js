@@ -1,5 +1,6 @@
 var _ = require('lodash')
 var manager = require('manager')
+var lib = require('lib')
 
 actions = {
 
@@ -28,12 +29,13 @@ actions = {
     },
 
     pickupEnergy: function(creep) {
-        var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-           filter: (structure) => {
-               return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > 1500;
-           }
-        });
-
+        var storage = lib.containerWithEnergy(creep.pos, 2500);
+        if(storage == undefined) {
+            storage = lib.containerWithEnergy(creep.pos, 1000);
+        } else {
+            storage = lib.containerWithEnergy(creep.pos, 100);
+        }
+    
         switch(creep.withdraw(storage, RESOURCE_ENERGY)) {
             case ERR_NOT_IN_RANGE:
                 creep.moveTo(storage);

@@ -3,9 +3,12 @@ var _ = require('lodash')
 // a place to put helper functions for manipulating the map, not deps on my code
 lib = {
 
-    hello: function() {
-        console.log('hello');
-    }
+    containerWithEnergy: function(pos, targetEnergy) {
+        var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+           filter: (structure) => {
+               return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > targetEnergy;
+           }
+        });
 
 }
 
