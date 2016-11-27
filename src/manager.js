@@ -5,22 +5,24 @@ manager = {
 
     getResourceAssignment: function(creep) {
 
-        var resources = Memory[creep.room.id].energySources;
+        if(creep.room != undefined) {
+            var resources = Memory[creep.room.id].energySources;
 
-        for (var i=0; i < resources.length; i++) {
-            var assignments = Memory.assignments[resources[i].id];
-            if(assignments.length == 0) {
-                creep.memory.assignedResource = resources[i].id;
-                var nearestContainer = resources[i].pos.findClosestByPath(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return structure.structureType == STRUCTURE_CONTAINER;
-                    }
-                });
-                creep.memory.assignedStorage = nearestContainer.id;
+            for (var i=0; i < resources.length; i++) {
+                var assignments = Memory.assignments[resources[i].id];
+                if(assignments.length == 0) {
+                    creep.memory.assignedResource = resources[i].id;
+                    var nearestContainer = resources[i].pos.findClosestByPath(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                            return structure.structureType == STRUCTURE_CONTAINER;
+                        }
+                    });
+                    creep.memory.assignedStorage = nearestContainer.id;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
     },
     // for now very simple, mimic old logic mostly. next round do job struct?
     assignJob: function(creep) {
