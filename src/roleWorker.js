@@ -28,7 +28,7 @@ var roleWorker = {
                 actions.upgrade(creep);
             } else if(state == 'storing') {
                 console.log(creep.name + ' storing')
-                actions.store(creep);
+                actions.storeEnergy(creep);
             } else if(state == 'building') {
                 actions.build(creep);
             }
