@@ -34,7 +34,7 @@ roleSpawner = {
                 build.push(part);
             }
         }
-    }
+    },
 
     currentWorkerBuild: function() {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
@@ -84,7 +84,7 @@ roleSpawner = {
         } else {
             return [WORK,CARRY,MOVE];
         }
-    }
+    },
 }
 
 module.exports = roleSpawner;
