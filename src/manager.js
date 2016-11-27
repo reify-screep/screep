@@ -7,6 +7,7 @@ manager = {
 
         if(creep.room.name != undefined) {
             var resources = Memory[creep.room.name].energySources;
+            console.log(resources)
 
             for (var i=0; i < resources.length; i++) {
                 if(Memory.assignments == undefined) {
@@ -18,6 +19,7 @@ manager = {
                     assignments = Memory.assignments[resources[i]];
                 }
                 if(assignments.length == 0) {
+                    console.log(creep.name + ' assignments.len == 0 ' + resources[i])
                     assignments.push(creep.name)
                     creep.memory.assignedResource = resources[i];
                     var nearestContainer = null;
@@ -32,7 +34,7 @@ manager = {
 //                            return structure.structureType == STRUCTURE_CONTAINER;
 //                        }
 //                    });
-                    console.log('nearest container: ' + nearestContainer)
+                    console.log(creep.name + ' nearest container: ' + nearestContainer)
                     creep.memory.assignedStorage = nearestContainer.id;
                 }
                 return true;
