@@ -36,11 +36,11 @@ manager = {
     assignJob: function(creep) {
 
         if(Memory[creep.room.name].lastUpgraded + 3000 < Game.time) {
-            return 'upgrading';
+            creep.memory.state =  'upgrading';
         } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
-            return 'storing';
+            creep.memory.state = 'storing';
         } else {
-            return 'building';
+            creep.memory.state = 'building';
         }
 
     }
