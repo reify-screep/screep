@@ -22,7 +22,9 @@ roleSpawner = {
 	            }
 
 		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
-		        console.log('spawning new ' + role + ': ' + newName);
+                if(newName) {
+                    console.log('spawning new ' + role + ': ' + newName);
+                }
 	        }
 	    }
     },
