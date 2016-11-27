@@ -6,7 +6,7 @@ actions = {
     harvest: function(creep) {
         if(creep.energy == creep.carryCapacity) {
             actions.storeLocally(creep);
-        } else if(creep.memory.assignedEnergy == undefined) {
+        } else if(creep.memory.assignedResource == undefined) {
             manager.getResourceAssignment(creep);
         } else {
             var energySource = Game.getObjectById(creep.memory.assignedEnergy);
