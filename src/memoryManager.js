@@ -45,6 +45,7 @@ memoryManager = {
     },
 
     updateResourceStore: function(roomId) {
+        var room = Game.rooms[roomId];
         var resources = [];
         var raw = room.find(FIND_SOURCES);
         for (var i=0; i < raw.length; i++) {
