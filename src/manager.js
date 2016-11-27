@@ -9,7 +9,14 @@ manager = {
             var resources = Memory[creep.room.name].energySources;
 
             for (var i=0; i < resources.length; i++) {
+                if(Memory.assignments == undefined) {
+                    Memory.assignments = {};
+                }
                 var assignments = Memory.assignments[resources[i].id];
+                if(assignments = undefined) {
+                    Memory.assignments[resources[i].id] = [];
+                    assignments = Memory.assignments[resources[i].id];
+                }
                 if(assignments.length == 0) {
                     creep.memory.assignedResource = resources[i].id;
                     var nearestContainer = resources[i].pos.findClosestByPath(FIND_STRUCTURES, {
