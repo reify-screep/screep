@@ -3,7 +3,7 @@ roleSpawner = {
     run: function() {
 	    var store = {
 	        'harvester': 2,
-	        'worker': 4,
+	        'worker': 8,
 	    };
 
 	    for(role in store) {
