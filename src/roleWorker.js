@@ -28,6 +28,8 @@ var roleWorker = {
                 actions.storeEnergy(creep);
             } else if(state == 'building') {
                 actions.build(creep);
+            } else if(state == 'repairing') {
+                actions.repair(creep);
             }
 
 	    }
