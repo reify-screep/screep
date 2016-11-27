@@ -32,7 +32,8 @@ actions = {
         var storage = lib.containerWithEnergy(creep.pos, 2500);
         if(storage == undefined) {
             storage = lib.containerWithEnergy(creep.pos, 1000);
-        } else {
+        }
+        if(storage == undefined) {
             storage = lib.containerWithEnergy(creep.pos, 100);
         }
 
