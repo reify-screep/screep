@@ -20,10 +20,8 @@ actions = {
 
     storeLocally: function(creep) {
         var storage = Game.getObjectById(creep.memory.assignedStorage);
-        console.log('storage ' + storage)
         switch(creep.transfer(storage, RESOURCE_ENERGY)) {
             case ERR_NOT_IN_RANGE:
-                console.log('out of range')
                 creep.moveTo(storage);
                 break;
         }
