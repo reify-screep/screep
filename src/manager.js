@@ -12,10 +12,10 @@ manager = {
                 if(Memory.assignments == undefined) {
                     Memory.assignments = {};
                 }
-                var assignments = Memory.assignments[resources[i].id];
+                var assignments = Memory.assignments[resources[i]];
                 if(assignments == undefined) {
-                    Memory.assignments[resources[i].id] = [];
-                    assignments = Memory.assignments[resources[i].id];
+                    Memory.assignments[resources[i]] = [];
+                    assignments = Memory.assignments[resources[i]];
                 }
                 if(assignments.length == 0) {
                     creep.memory.assignedResource = resources[i];
