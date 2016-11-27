@@ -37,8 +37,6 @@ actions = {
             storage = lib.containerWithEnergy(creep.pos, 100);
         }
 
-        console.log(creep.name + ' found storage ' + storage);
-
         switch(creep.withdraw(storage, RESOURCE_ENERGY)) {
             case ERR_NOT_IN_RANGE:
                 creep.moveTo(storage);
