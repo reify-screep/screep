@@ -16,10 +16,10 @@ roleTower = {
             if (target != undefined) {
                 tower.attack(target);
             }
-            var repairTargets = tower.pos.findInRange(FIND_STRUCTURES, 40, { filter: structureNeedsRepairs });
-            if (repairTargets[0] != undefined) {
-                tower.repair(repairTargets[0]);
-            }
+//            var repairTargets = tower.pos.findInRange(FIND_STRUCTURES, 40, { filter: structureNeedsRepairs });
+//            if (repairTargets[0] != undefined) {
+//                tower.repair(repairTargets[0]);
+//            }
         }
     }
 }
