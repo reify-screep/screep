@@ -30,7 +30,6 @@ actions = {
 
     pickupEnergy: function(creep) {
         var storage = lib.containerWithEnergy(creep.pos, 2500);
-        console.log(creep.name + ' ' + storage)
         if(storage == undefined) {
             storage = lib.containerWithEnergy(creep.pos, 1000);
         } else {

@@ -4,13 +4,12 @@ var _ = require('lodash')
 lib = {
 
     containerWithEnergy: function(pos, targetEnergy) {
-        console.log('pos ' + pos);
-        console.log('energy ' + targetEnergy);
         var storage = pos.findClosestByPath(FIND_STRUCTURES, {
            filter: (structure) => {
                return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > targetEnergy;
            }
         });
+        return storage;
     },
 
 }
