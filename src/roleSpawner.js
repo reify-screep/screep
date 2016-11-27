@@ -16,9 +16,9 @@ roleSpawner = {
                     case 'harvester':
                         build = roleSpawner.currentHarvesterBuild();
                         break;
-	                case 'worker':
-	                    build = roleSpawner.currentWorkerBuild();
-	                    break;
+//	                case 'worker':
+//	                    build = roleSpawner.currentWorkerBuild();
+//	                    break;
 	            }
 
 		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
