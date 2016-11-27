@@ -34,6 +34,7 @@ roleSpawner = {
                 build.push(part);
             }
         }
+        console.log(build);
         return build;
     },
 
