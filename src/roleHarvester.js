@@ -1,7 +1,7 @@
 var actions = require('actions')
 var _ = require('lodash')
 
-var roleHarvester =
+var roleHarvester = {
     run: function(creep) {
         if(creep.room.name != Memory.home) {
             actions.goHome(creep);
