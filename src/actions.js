@@ -6,12 +6,12 @@ actions = {
     harvest: function(creep) {
         console.log(creep.name + ' harvesting')
         console.log(creep.carry.energy + ' ' + creep.carryCapacity)
-        if(creep.carry.energy == creep.carryCapacity) {
-            console.log('store local')
-            actions.storeLocally(creep);
-        } else if(creep.memory.assignedResource == undefined) {
+        if(creep.memory.assignedResource == undefined) {
             console.log(creep.name + ' get assignment')
             manager.getResourceAssignment(creep);
+        } else if(creep.carry.energy == creep.carryCapacity) {
+            console.log('store local')
+            actions.storeLocally(creep);
         } else {
             console.log(creep.name + ' try harvest')
             console.log(creep.memory.assignedResource)
