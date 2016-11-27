@@ -2,9 +2,6 @@ var memoryManager = require('memoryManager')
 var roleTower = require('roleTower')
 var roleWorker = require('roleWorker')
 var roleHarvester = require('roleHarvester')
-var roleSpawner = require('roleSpawner')
-var roleGeneralist = require('roleGeneralist')
-var oldGc = require('garbageCollector')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -14,8 +11,6 @@ module.exports.loop = function () {
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
     memoryManager.updateResourceStore(Memory.home);
-
-    oldGc.collect();
 
     roleSpawner.run();
     roleTower.run(Memory.home);
@@ -28,9 +23,6 @@ module.exports.loop = function () {
 	            break;
 	        case 'harvester':
 	            roleHarvester.run(creep);
-	            break;
-	        case 'generalist':
-	            roleGeneralist.run(creep);
 	            break;
 	    }
     }
