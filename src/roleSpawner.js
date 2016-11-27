@@ -4,6 +4,7 @@ roleSpawner = {
 	    var store = {
 	        'harvester': 2,
 	        'worker': 8,
+	        'reserver': 1,
 	    };
 
 	    for(role in store) {
@@ -18,6 +19,9 @@ roleSpawner = {
                         break;
 	                case 'worker':
 	                    build = roleSpawner.currentWorkerBuild();
+	                    break;
+	                case 'reserver':
+	                    build = roleSpawner.currentReserverBuild();
 	                    break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
@@ -101,6 +105,10 @@ roleSpawner = {
         } else {
             return [WORK,CARRY,MOVE];
         }
+    },
+
+    currentReserverBuild: function() {
+        return [CLAIM, CLAIM, MOVE, MOVE];
     },
 }
 

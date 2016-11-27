@@ -3,6 +3,7 @@ var roleTower = require('roleTower')
 var roleWorker = require('roleWorker')
 var roleHarvester = require('roleHarvester')
 var roleSpawner = require('roleSpawner')
+var roleReserver = require('roleReserver')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -31,6 +32,9 @@ module.exports.loop = function () {
 	            break;
 	        case 'harvester':
 	            roleHarvester.run(creep);
+	            break;
+	        case 'reserver':
+	            roleReserver.run();
 	            break;
 	    }
     }
