@@ -7,7 +7,7 @@ var roleReserver = {
         var targetRoom = 'W7N69';
 
         if(Game.rooms[targetRoom] == undefined) {
-            var targetPos = RoomPosition(32, 48, targetRoom);
+            var targetPos = Game.flags.expansionTarget;
             creep.moveTo(targetPos);
             return;
         }
