@@ -3,8 +3,8 @@ var _ = require('lodash')
 // a place to put helper functions for manipulating the map, not deps on my code
 lib = {
 
-    store: function() {
-
+    hello: function() {
+        console.log('hello');
     }
 
 }
