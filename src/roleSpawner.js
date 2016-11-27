@@ -13,16 +13,17 @@ roleSpawner = {
 
 	            var build = undefined;
 	            switch (role) {
+                    case 'harvester':
+                        build = roleSpawner.currentHarvesterBuild();
+                        break;
 	                case 'worker':
 	                    build = roleSpawner.currentWorkerBuild();
-	                    break;
-	                case 'harvester':
-	                    build = roleSpawner.currentHarvesterBuild();
 	                    break;
 	            }
 
 		        var newName = Game.spawns['Spawn1'].createCreep(build, undefined, {role: role});
 		        console.log('spawning new ' + role + ': ' + newName);
+		        return;
 	        }
 	    }
     },
