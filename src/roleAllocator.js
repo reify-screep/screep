@@ -2,7 +2,7 @@ roleAllocator = {
 
     spawnNecessary: function() {
 	    var store = {
-	        'generalist': 12,
+	        'generalist': 8,
 	    };
 
 	    for(role in store) {
@@ -18,7 +18,9 @@ roleAllocator = {
 
     currentGeneralistBuild: function() {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
-        if(spawnRoomCapacity >= 800) {
+        if(spawnRoomCapacity >= 1300) {
+            return [WORK, WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+        } else if(spawnRoomCapacity >= 800) {
             return [WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE];
         } else if(spawnRoomCapacity >= 550) {
             return [WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE];

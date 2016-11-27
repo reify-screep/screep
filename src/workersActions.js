@@ -114,11 +114,13 @@ workersActions = {
     },
 
     repair: function(creep) {
-        if(!workersActions.repairType(creep, STRUCTURE_RAMPART, .25)) {
-            if(!workersActions.repairType(creep, STRUCTURE_ROAD, .5)) {
-                if(!workersActions.repairType(creep, STRUCTURE_TOWER, 1)) {
-                    if(!workersActions.repairType(creep, STRUCTURE_WALL, .0001)) {
-                        creep.memory.state = 'deciding';
+        if(!workersActions.repairType(creep, STRUCTURE_CONTAINER, .75)) {
+            if(!workersActions.repairType(creep, STRUCTURE_RAMPART, .25)) {
+                if(!workersActions.repairType(creep, STRUCTURE_ROAD, .5)) {
+                    if(!workersActions.repairType(creep, STRUCTURE_TOWER, 1)) {
+                        if(!workersActions.repairType(creep, STRUCTURE_WALL, .0001)) {
+                            creep.memory.state = 'deciding';
+                        }
                     }
                 }
             }
