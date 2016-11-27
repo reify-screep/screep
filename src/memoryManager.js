@@ -51,7 +51,7 @@ memoryManager = {
         for (var i=0; i < raw.length; i++) {
             resources.push(raw[i].id);
         }
-        Memory[room.id].energySources = resources;
+        Memory[roomId].energySources = resources;
     },
 
 }
