@@ -34,7 +34,7 @@ module.exports.loop = function () {
 	            roleHarvester.run(creep);
 	            break;
 	        case 'reserver':
-	            roleReserver.run();
+	            roleReserver.run(creep);
 	            break;
 	    }
     }
