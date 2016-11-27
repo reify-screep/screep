@@ -31,7 +31,20 @@ roleSpawner = {
         var build = [];
         for(part in stats) {
             for(var i=0; i < stats[part]; i++) {
-                build.push(part);
+                var partCode = undefined;
+                switch (part) {
+                    case 'WORK':
+                        partCode = WORK;
+                        break;
+                    case 'CARRY':
+                        partCode = CARRY;
+                        break;
+                    case 'MOVE':
+                        partCode = MOVE;
+                        break;
+                }
+
+                build.push(partCode);
             }
         }
         console.log(build);
