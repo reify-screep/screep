@@ -61,10 +61,14 @@ actions = {
            }
         });
 
-        switch(creep.transfer(storage, RESOURCE_ENERGY)) {
-            case ERR_NOT_IN_RANGE:
-                creep.moveTo(storage);
-                break;
+        if(storage == undefined || storage == null) {
+            creep.memory.state = 'deciding';
+        } else {
+            switch(creep.transfer(storage, RESOURCE_ENERGY)) {
+                case ERR_NOT_IN_RANGE:
+                    creep.moveTo(storage);
+                    break;
+            }
         }
     },
 

@@ -51,9 +51,10 @@ manager = {
             creep.memory.state = 'storing';
         } else {
             var next = _.shuffle(['upgrading', 'building', 'repairing'])[0];
-            console.log(creep.name + ' next action is ' + next);
             creep.memory.state = next;
         }
+
+        console.log(creep.name + ' next action is ' + creep.memory.state);
 
     }
 
