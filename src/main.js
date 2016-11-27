@@ -7,17 +7,6 @@ var _ = require('lodash')
 
 module.exports.loop = function () {
 
-    // debugging
-
-    var nearestContainer = Game.getObjectById('57ef9d9586f108ae6e60df7a').pos.findClosestByRange(FIND_STRUCTURES, {
-        filter: (structure) => {
-            return structure.structureType == STRUCTURE_CONTAINER;
-        }
-    });
-    console.log(nearestContainer);
-
-    // end
-
     Memory.home = 'W8N68';
 
     memoryManager.collect();
