@@ -111,7 +111,33 @@ actions = {
     },
 
     repair: function(creep) {
-        // just don't do this, towers only for now
+        if(!actions.repairType(creep, STRUCTURE_CONTAINER, .75)) {
+            if(!actions.repairType(creep, STRUCTURE_RAMPART, .25)) {
+                if(!actions.repairType(creep, STRUCTURE_ROAD, .5)) {
+                    if(!actions.repairType(creep, STRUCTURE_TOWER, 1)) {
+                        if(!actions.repairType(creep, STRUCTURE_WALL, .0001)) {
+                            creep.memory.state = 'deciding';
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    repairType: function(creep, structureType, percentage) {
+        var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return structure.structureType == structureType && (structure.hits / structure.hitsMax < percentage);
+            }
+        });
+        if(target != undefined) {
+            if(creep.repair(target)) {
+                creep.moveTo(target);
+            }
+            return true;
+        } else {
+            return false;
+        }
     },
 
     newJob: function(creep) {

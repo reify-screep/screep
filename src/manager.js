@@ -50,7 +50,8 @@ manager = {
         } else if(creep.room.energyCapacityAvailable > creep.room.energyAvailable) {
             creep.memory.state = 'storing';
         } else {
-            creep.memory.state = 'building';
+            var next = _.shuffle(['upgrading', 'building', 'repairing'])[0];
+            creep.memory.state = next;
         }
 
     }
