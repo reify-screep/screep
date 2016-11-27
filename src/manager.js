@@ -18,6 +18,7 @@ manager = {
                     assignments = Memory.assignments[resources[i]];
                 }
                 if(assignments.length == 0) {
+                    assignments.push(creep.name)
                     creep.memory.assignedResource = resources[i];
                     var nearestContainer = Game.getObjectById(resources[i]).pos.findClosestByPath(FIND_STRUCTURES, {
                         filter: (structure) => {
