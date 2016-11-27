@@ -25,7 +25,7 @@ memoryManager = {
 
     updateStructureStore: function(roomId) {
 
-        var room = Game.getObjectFromId(roomId);
+        var room = Game.getObjectById(roomId);
         var structures = room.find(FIND_STRUCTURES);
         var structureMap = {};
 
