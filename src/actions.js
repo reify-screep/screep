@@ -107,7 +107,7 @@ actions = {
 
     repair: function(creep) {
         if(!actions.repairType(creep, STRUCTURE_CONTAINER, .75)) {
-            if(!actions.repairType(creep, STRUCTURE_RAMPART, .25)) {
+            if(!actions.repairType(creep, STRUCTURE_RAMPART, .01)) {
                 if(!actions.repairType(creep, STRUCTURE_ROAD, .5)) {
                     if(!actions.repairType(creep, STRUCTURE_TOWER, 1)) {
                         if(!actions.repairType(creep, STRUCTURE_WALL, .0001)) {
