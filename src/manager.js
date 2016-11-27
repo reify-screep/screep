@@ -5,7 +5,7 @@ manager = {
 
     getResourceAssignment: function(creep) {
 
-        if(creep.room != undefined) {
+        if(creep.room.id != undefined) {
             var resources = Memory[creep.room.id].energySources;
 
             for (var i=0; i < resources.length; i++) {
