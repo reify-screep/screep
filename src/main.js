@@ -2,6 +2,7 @@ var memoryManager = require('memoryManager')
 var roleTower = require('roleTower')
 var roleWorker = require('roleWorker')
 var roleHarvester = require('roleHarvester')
+var roleSpawner = require('roleSpawner')
 var _ = require('lodash')
 
 module.exports.loop = function () {
