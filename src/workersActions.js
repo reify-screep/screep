@@ -30,7 +30,7 @@ workersActions = {
 
         // what is our current adjustment factor, based on how many parallel miners
         var adjustments = {
-            '57ef9d9586f108ae6e60df7a': 3,
+            '57ef9d9586f108ae6e60df7a': 30000,
             '57ef9d9586f108ae6e60df7b': 1,
         }
 
