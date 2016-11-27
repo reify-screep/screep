@@ -4,7 +4,7 @@ var _ = require('lodash')
 lib = {
 
     containerWithEnergy: function(pos, targetEnergy) {
-        var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+        var storage = pos.findClosestByPath(FIND_STRUCTURES, {
            filter: (structure) => {
                return (structure.structureType == STRUCTURE_CONTAINER) && structure.store[RESOURCE_ENERGY] > targetEnergy;
            }
