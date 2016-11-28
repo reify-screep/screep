@@ -6,7 +6,7 @@ var roleRoadlayer = {
 
         var targetRoom = Memory.roadTarget;
 
-        if(creep.energy.carry < creep.carryCapacity) {
+        if(creep.carry.energy < creep.carryCapacity) {
             if(creep.room.name != Memory.home) {
                 creep.moveTo(Game.rooms[Memory.home]);
             } else {
