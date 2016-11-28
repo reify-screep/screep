@@ -19,6 +19,23 @@ actions = {
         }
     },
 
+    workerHarvest: function(creep) {
+        if(creep.carry.energy == creep.carryCapacity) {
+            creep.memory.state == 'deciding';
+        } else {
+            var energySource = creep.pos.findClosestByPath(FIND_SOURCES);
+            if (energySource != undefined) {
+                switch(creep.harvest(energySource)) {
+                    case ERR_NOT_IN_RANGE:
+                        creep.moveTo(energySource);
+                        break;
+                }
+            } else {
+                console.log('err: ' + creep.name + ' - cannot find energy source')
+            }
+        }
+    },
+
     storeLocally: function(creep) {
         var storage = Game.getObjectById(creep.memory.assignedStorage);
         switch(creep.transfer(storage, RESOURCE_ENERGY)) {
@@ -143,9 +160,7 @@ actions = {
     },
 
     goHome: function(creep) {
-        console.log('help me i am lost - ' + creep.name + ' my home is ' + creep.memory.home + ' i am in ' + creep.room.name);
         var dest = Game.rooms[creep.memory.home].controller;
-        console.log('i am going home to ' + dest)
         creep.moveTo(dest);
     },
 

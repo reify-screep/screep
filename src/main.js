@@ -9,13 +9,17 @@ var _ = require('lodash')
 module.exports.loop = function () {
 
     Memory.home = 'W8N68';
+    Memory.expansionTarget = 'W7N69';
     Memory[Memory.home].spawns = ['Spawn1'];
 
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
     memoryManager.updateResourceStore(Memory.home);
 
-    Game.creeps['Chloe'].assignedStorage = '5839c87e3677f25b6a29ad84';
+    if(Game.rooms[Memory.expansionTarget] != undefined) {
+        memoryManager.updateStructureStore(Memory.expansionTarget);
+        memoryManager.updateResourceStore(Memory.expansionTarget);
+    }
 
     roleSpawner.run(Memory.home);
     roleTower.run(Memory.home);

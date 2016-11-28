@@ -23,10 +23,21 @@ roleSpawner = {
 	                case 'reserver':
 	                    build = roleSpawner.currentReserverBuild();
 	                    break;
+                    case 'claimer':
+                        build = roleSpawner.currentClaimerBuild();
+                        break;
+                    case 'settler':
+                        build = roleSpawner.currentSettlerBuild();
+                        break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
 
-		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: roomId});
+                var targetHome = roomId;
+                if(role == 'settler') {
+                    targetHome = Memory.expansionTarget;
+                }
+
+		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: targetHome});
                 if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
                 }
@@ -109,6 +120,18 @@ roleSpawner = {
 
     currentReserverBuild: function() {
         return [CLAIM, CLAIM, MOVE, MOVE];
+    },
+
+    currentClaimerBuild: function() {
+        return [CLAIM, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+    },
+
+    currentSettlerBuild: function() {
+        return roleSpawner.assembleBuild({
+            WORK: 4,
+            CARRY: 4,
+            MOVE: 8,
+        })
     },
 }
 
