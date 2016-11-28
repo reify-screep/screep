@@ -3,7 +3,7 @@ roleSpawner = {
     run: function(roomId) {
 	    var store = {
 	        'harvester': 2,
-	        'worker': 7,
+	        'worker': 6,
 	        'reserver': 1,
 	    };
 
@@ -86,7 +86,7 @@ roleSpawner = {
         var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
-                WORK: 7,
+                WORK: 6,
                 CARRY: 4,
                 MOVE: 6,
             })
