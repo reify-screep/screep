@@ -3,7 +3,7 @@ roleSpawner = {
     run: function(roomId) {
 	    var store = {
 	        'harvester': 2,
-	        'worker': 5,
+	        'worker': 4,
 	        'reserver': 1,
 	    };
 
