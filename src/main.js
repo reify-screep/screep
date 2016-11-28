@@ -4,12 +4,16 @@ var roleWorker = require('roleWorker')
 var roleHarvester = require('roleHarvester')
 var roleSpawner = require('roleSpawner')
 var roleReserver = require('roleReserver')
+var roleClaimer = require('roleClaimer')
+var roleSettler = require('roleSettler')
+var roleRoadlayer = require('roleRoadlayer')
 var _ = require('lodash')
 
 module.exports.loop = function () {
 
     Memory.home = 'W8N68';
     Memory.expansionTarget = 'W7N69';
+    Memory.roadTarget = 'W7N68';
     Memory[Memory.home].spawns = ['Spawn1'];
 
     memoryManager.collect();
@@ -36,6 +40,15 @@ module.exports.loop = function () {
 	        case 'reserver':
 	            roleReserver.run(creep);
 	            break;
+            case 'settler':
+                roleSettler.run(creep);
+                break;
+            case 'claimer':
+                roleClaimer.run(creep);
+                break;
+            case 'roadLayer':
+                roleRoadlayer.run(creep);
+                break;
 	    }
     }
 }

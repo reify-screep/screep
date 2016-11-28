@@ -125,6 +125,19 @@ actions = {
         }
     },
 
+    layRoad: function(creep) {
+        var target = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+        if(target != undefined) {
+            switch(creep.build(target)) {
+                case ERR_NOT_IN_RANGE:
+                    creep.moveTo(target);
+                    break;
+            }
+        } else {
+            Memory.layRoads = false;
+        }
+    },
+
     repair: function(creep) {
         if(!actions.repairType(creep, STRUCTURE_CONTAINER, .75)) {
             if(!actions.repairType(creep, STRUCTURE_RAMPART, .01)) {

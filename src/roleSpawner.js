@@ -20,6 +20,9 @@ roleSpawner = {
 	                case 'worker':
 	                    build = roleSpawner.currentWorkerBuild();
 	                    break;
+	                case 'roadLayer':
+	                    build = roleSpawner.currentWorkerBuild();
+	                    break;
 	                case 'reserver':
 	                    build = roleSpawner.currentReserverBuild();
 	                    break;
