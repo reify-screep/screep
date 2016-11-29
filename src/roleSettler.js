@@ -5,7 +5,12 @@ var roleSettler = {
     run: function(creep) {
 
         if(creep.room.name != creep.memory.home) {
-            actions.goHome(creep);
+
+            var dest = Game.rooms[creep.memory.home].controller;
+            if(!dest) {
+                dest = Game.flags.expansionTarget;
+            }
+            creep.moveTo(dest);
         } else {
 
             if(creep.carry.energy == 0) {
