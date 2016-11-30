@@ -7,6 +7,7 @@ var roleReserver = require('roleReserver')
 var roleClaimer = require('roleClaimer')
 var roleSettler = require('roleSettler')
 var roleRoadlayer = require('roleRoadlayer')
+var roleAttacker = require('roleAttacker')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -48,6 +49,9 @@ module.exports.loop = function () {
                 break;
             case 'roadLayer':
                 roleRoadlayer.run(creep);
+                break;
+            case 'attacker':
+                roleAttacker.run(creep);
                 break;
 	    }
     }

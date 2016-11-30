@@ -32,6 +32,9 @@ roleSpawner = {
                     case 'settler':
                         build = roleSpawner.currentSettlerBuild();
                         break;
+                    case 'attacker':
+                        build = roleSpawner.currentAttackerBuild();
+                        break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
 
@@ -134,6 +137,13 @@ roleSpawner = {
             WORK: 4,
             CARRY: 4,
             MOVE: 8,
+        })
+    },
+
+    currentAttackerBuild: function() {
+        return roleSpawner.assembleBuild({
+            ATTACK: 10,
+            MOVE: 10,
         })
     },
 }
