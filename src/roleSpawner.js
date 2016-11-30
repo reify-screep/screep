@@ -66,6 +66,9 @@ roleSpawner = {
                     case 'MOVE':
                         partCode = MOVE;
                         break;
+                    case 'ATTACK':
+                        partCode = ATTACK;
+                        break;
                 }
 
                 build.push(partCode);
