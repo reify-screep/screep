@@ -8,7 +8,10 @@ var roleAttacker = {
         } else {
             var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS);
             if(target == undefined) {
-                target = creep.pos.findClosestByPath(FIND_HOSTILE_STRUCTURES);
+                target = creep.pos.findClosestByPath(FIND_HOSTILE_STRUCTURES, {
+                    filter: (structure) => {
+                        return structure.structureType != STRUCTURE_CONTROLLER;
+                    });
             }
             if(target != undefined) {
                 if(creep.attack(target)) {
