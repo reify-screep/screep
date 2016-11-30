@@ -3,7 +3,7 @@ var _ = require('lodash')
 
 var roleAttacker = {
     run: function(creep) {
-        if(creep.room.name != Game.flags.attackTarget.room) {
+        if(creep.room.name != Game.flags.attackTarget.room.name) {
             creep.moveTo(Game.flags.attackTarget);
         } else {
             var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS);
