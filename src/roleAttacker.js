@@ -11,7 +11,7 @@ var roleAttacker = {
                 target = creep.pos.findClosestByPath(FIND_HOSTILE_STRUCTURES);
             }
             if(target != undefined) {
-                if(!creep.attack(target)) {
+                if(creep.attack(target)) {
                     creep.moveTo(target);
                 }
             }
