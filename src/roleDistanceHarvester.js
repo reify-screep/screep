@@ -56,9 +56,6 @@ var roleDistanceHarvester = {
                var target = creep.pos.findClosestByPath(FIND_SOURCES);
                if(creep.harvest(target)) {
                  creep.moveTo(target);
-               } else {
-                  // target is undefined, so try another room
-                  creep.memory.target = _.shuffle(flags)[0];
                }
             }
         } else {
