@@ -158,7 +158,7 @@ roleSpawner = {
         return roleSpawner.assembleBuild({
             WORK: 5, // 500 + 250
             CARRY: 10, // 500 + 500
-            MOVE: 15, 
+            MOVE: 15,
         })
     },
 }
