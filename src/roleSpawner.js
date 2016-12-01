@@ -1,4 +1,4 @@
-var actions = require('roleReserver')
+var roleReserver = require('roleReserver')
 
 roleSpawner = {
 
