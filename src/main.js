@@ -18,6 +18,13 @@ module.exports.loop = function () {
     Memory.roadTarget = 'W7N68';
     Memory[Memory.home].spawns = ['Spawn1'];
 
+    if(!Memory.claimTargets) {
+        Memory.claimTargets = {};
+    }
+    if(!Memory.claimTargets['W7N69']) {
+        Memory.claimTargets['W7N69'] = {};
+    }
+
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
     memoryManager.updateResourceStore(Memory.home);
