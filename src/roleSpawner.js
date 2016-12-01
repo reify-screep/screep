@@ -6,7 +6,7 @@ roleSpawner = {
 	    var store = {
 	        'harvester': 2,
 	        'worker': 5,
-	        'reserver': Memory.claimTargets.length,
+	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 4,
 	    };
 
