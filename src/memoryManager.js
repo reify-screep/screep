@@ -21,6 +21,13 @@ memoryManager = {
             }
         }
 
+        for(var target in Memory.claimTargets) {
+            var worker = Memory.claimTargets[target].worked;
+            if(!Game.creeps[worker]) {
+                Memory.claimTargets[target].worked = undefined;
+            }
+        }
+
     },
 
     updateStructureStore: function(roomId) {

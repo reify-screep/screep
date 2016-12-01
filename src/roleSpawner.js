@@ -1,3 +1,5 @@
+var actions = require('roleReserver')
+
 roleSpawner = {
 
     run: function(roomId) {
@@ -7,6 +9,10 @@ roleSpawner = {
 	        'reserver': 1,
 	        'distanceHarvester': 4,
 	    };
+
+        if(!roleReserver.expiringSoon()) {
+            store['reserver'] = 0;
+        }
 
 	    for(role in store) {
 	        var count = store[role];
