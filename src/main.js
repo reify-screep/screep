@@ -28,6 +28,10 @@ module.exports.loop = function () {
     if(!Memory.claimTargets['W7N68']) {
         Memory.claimTargets['W7N68'] = {};
     }
+    if(!Memory.claimTargets['W6N68'] && Game.time >  15684660 + 9100) {
+        Memory.claimTargets['W6N68'] = {};
+        Memory.claimTargets['W6N68'].ticks = Game.time + 500;
+    }
 
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
