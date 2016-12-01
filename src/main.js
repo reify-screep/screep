@@ -24,6 +24,9 @@ module.exports.loop = function () {
     if(!Memory.claimTargets['W7N69']) {
         Memory.claimTargets['W7N69'] = {};
     }
+    if(!Memory.claimTargets['W7N68']) {
+        Memory.claimTargets['W7N68'] = {};
+    }
 
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
