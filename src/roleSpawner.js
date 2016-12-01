@@ -5,6 +5,7 @@ roleSpawner = {
 	        'harvester': 2,
 	        'worker': 5,
 	        'reserver': 1,
+	        'distanceHarvester': 1,
 	    };
 
 	    for(role in store) {
@@ -34,6 +35,9 @@ roleSpawner = {
                         break;
                     case 'attacker':
                         build = roleSpawner.currentAttackerBuild();
+                        break;
+                    case 'distanceHarvester':
+                        build = roleSpawner.currentDistanceHarvesterBuild();
                         break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
@@ -147,6 +151,14 @@ roleSpawner = {
         return roleSpawner.assembleBuild({
             ATTACK: 10,
             MOVE: 10,
+        })
+    },
+
+    currentDistanceHarvesterBuild: function() {
+        return roleSpawner.assembleBuild({
+            WORK: 5, // 500 + 250
+            CARRY: 10, // 500 + 500
+            MOVE: 15, 
         })
     },
 }
