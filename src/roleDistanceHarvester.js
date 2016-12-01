@@ -65,7 +65,7 @@ var roleDistanceHarvester = {
                     break;
             }
         }
-    }
+    },
 
     layOrRepairRoads: function(creep) {
 
