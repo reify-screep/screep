@@ -60,6 +60,9 @@ var roleDistanceHarvester = {
                   creep.memory.target = _.shuffle(flags)[0];
                }
             }
+        } else {
+            // default to going home
+            creep.moveTo(Game.rooms[creep.memory.home].storage)
         }
     },
 
