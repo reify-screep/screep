@@ -36,17 +36,7 @@ var roleDistanceHarvester = {
         if(creep.carry.energy == creep.carryCapacity) {
 
             creep.memory.harvesting = false;
-
-            if(creep.room.name != Memory.home) {
-                creep.moveTo(Game.rooms[Memory.home].controller);
-            } else {
-                var storage = Game.rooms[Memory.home].storage;
-                switch(creep.transfer(storage, RESOURCE_ENERGY)) {
-                    case ERR_NOT_IN_RANGE:
-                        creep.moveTo(storage);
-                        break;
-                }
-            }
+            roleDistanceHarvester.storeAtHome(creep);
 
         // go to the target room, then find an energy in it and nom away
         } else if(creep.memory.harvesting) {
@@ -60,9 +50,22 @@ var roleDistanceHarvester = {
             }
         } else {
             // default to going home
-            creep.moveTo(Game.rooms[creep.memory.home].storage)
+            roleDistanceHarvester.storeAtHome(creep);
         }
     },
+
+    storeAtHome: function(creep) {
+        if(creep.room.name != Memory.home) {
+            creep.moveTo(Game.rooms[Memory.home].controller);
+        } else {
+            var storage = Game.rooms[Memory.home].storage;
+            switch(creep.transfer(storage, RESOURCE_ENERGY)) {
+                case ERR_NOT_IN_RANGE:
+                    creep.moveTo(storage);
+                    break;
+            }
+        }
+    }
 
     layOrRepairRoads: function(creep) {
 
