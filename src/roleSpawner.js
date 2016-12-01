@@ -7,7 +7,7 @@ roleSpawner = {
 	        'harvester': 2,
 	        'worker': 5,
 	        'reserver': Object.keys(Memory.claimTargets).length,
-	        'distanceHarvester': 6,
+	        'distanceHarvester': 9,
 	        //'attacker': 1,
 	        //'sniper': 1,
 	    };

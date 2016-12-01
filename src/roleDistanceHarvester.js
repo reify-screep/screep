@@ -7,7 +7,7 @@ var roleDistanceHarvester = {
         var flags = [
             'distanceHarvestA',
             'distanceHarvestB',
-            //'distanceHarvestC' // disabled until that player finishes dying
+            'distanceHarvestC'
         ];
 
         // maybe do some roadwork
