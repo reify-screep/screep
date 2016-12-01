@@ -8,13 +8,13 @@ roleSpawner = {
 	        'worker': 5,
 	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 4,
-	        'attacker': 1,
-	        'sniper': 1,
+	        //'attacker': 1,
+	        //'sniper': 1,
 	    };
 
-        //if(!roleReserver.expiringSoon()) {
-        //    store['reserver'] = 0;
-        //}
+        if(!roleReserver.expiringSoon()) {
+            store['reserver'] = 0;
+        }
 
 	    for(role in store) {
 	        var count = store[role];
