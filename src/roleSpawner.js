@@ -5,7 +5,7 @@ roleSpawner = {
 	        'harvester': 2,
 	        'worker': 5,
 	        'reserver': 1,
-	        'distanceHarvester': 1,
+	        'distanceHarvester': 6,
 	    };
 
 	    for(role in store) {
