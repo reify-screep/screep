@@ -33,8 +33,8 @@ var roleReserver = {
                 best = target;
             }
         }
-        Memory.claimTargets[target].worked = creep.name;
-        creep.memory.claimTarget = target;
+        Memory.claimTargets[best].worked = creep.name;
+        creep.memory.claimTarget = best;
 
     },
 
