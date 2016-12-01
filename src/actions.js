@@ -51,7 +51,10 @@ actions = {
             storage = lib.containerWithEnergy(creep.pos, 1000);
         }
         if(storage == undefined) {
-            storage = lib.containerWithEnergy(creep.pos, 100);
+            storage = lib.containerWithEnergy(creep.pos, 400);
+        }
+        if(storage == undefined) {
+            storage = Game.rooms[Memory.home].storage;
         }
 
         switch(creep.withdraw(storage, RESOURCE_ENERGY)) {

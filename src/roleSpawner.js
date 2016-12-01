@@ -86,20 +86,20 @@ roleSpawner = {
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
                 WORK: 4,
-                CARRY: 7,
-                MOVE: 11,
+                CARRY: 8,
+                MOVE: 6,
             })
         } else if(spawnRoomCapacity >= 800) {
             return roleSpawner.assembleBuild({
                 WORK: 2,
-                CARRY: 5,
-                MOVE: 7,
+                CARRY: 6,
+                MOVE: 4,
             })
         } else if(spawnRoomCapacity >= 550) {
             return roleSpawner.assembleBuild({
                 WORK: 2,
                 CARRY: 3,
-                MOVE: 4,
+                MOVE: 3,
             })
         } else {
             return [WORK,CARRY,MOVE];
@@ -112,19 +112,19 @@ roleSpawner = {
             return roleSpawner.assembleBuild({
                 WORK: 6,
                 CARRY: 4,
-                MOVE: 6,
+                MOVE: 3,
             })
         } else if(spawnRoomCapacity >= 800) {
             return roleSpawner.assembleBuild({
                 WORK: 4,
                 CARRY: 4,
-                MOVE: 4,
+                MOVE: 2,
             })
         } else if(spawnRoomCapacity >= 550) {
             return roleSpawner.assembleBuild({
                 WORK: 3,
-                CARRY: 2,
-                MOVE: 3,
+                CARRY: 3,
+                MOVE: 2,
             })
         } else {
             return [WORK,CARRY,MOVE];
