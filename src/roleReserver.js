@@ -22,7 +22,7 @@ var roleReserver = {
         } else {
             Memory.claimTargets[targetRoom].ticks = controller.reservation.ticksToEnd;
         }
-    }
+    },
 
     getClaimTarget: function(creep) {
 
