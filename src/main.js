@@ -9,6 +9,7 @@ var roleSettler = require('roleSettler')
 var roleRoadlayer = require('roleRoadlayer')
 var roleAttacker = require('roleAttacker')
 var roleDistanceHarvester = require('roleDistanceHarvester')
+var roleSniper = require('roleSniper')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -66,6 +67,9 @@ module.exports.loop = function () {
                 break;
             case 'distanceHarvester':
                 roleDistanceHarvester.run(creep);
+                break;
+            case 'sniper':
+                roleSniper.run(creep);
                 break;
 	    }
     }

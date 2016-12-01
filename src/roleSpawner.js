@@ -8,6 +8,8 @@ roleSpawner = {
 	        'worker': 5,
 	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 4,
+	        'attacker': 1,
+	        'sniper': 1,
 	    };
 
         //if(!roleReserver.expiringSoon()) {
@@ -45,6 +47,9 @@ roleSpawner = {
                     case 'distanceHarvester':
                         build = roleSpawner.currentDistanceHarvesterBuild();
                         break;
+                    case 'sniper':
+                        build = roleSpawner.currentSniperBuild();
+                        break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
 
@@ -79,6 +84,9 @@ roleSpawner = {
                     case 'ATTACK':
                         partCode = ATTACK;
                         break;
+                     case 'RANGED_ATTACK':
+                         partCode = RANGED_ATTACK;
+                         break;
                 }
 
                 build.push(partCode);
@@ -157,6 +165,13 @@ roleSpawner = {
         return roleSpawner.assembleBuild({
             ATTACK: 10,
             MOVE: 10,
+        })
+    },
+
+    currentSniperBuild: function() {
+        return roleSpawner.assembleBuild({
+            RANGED_ATTACK: 1,
+            MOVE: 1,
         })
     },
 

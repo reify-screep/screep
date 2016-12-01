@@ -18,7 +18,7 @@ var roleAttacker = {
             if(target == undefined) {
                 target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                     filter: (structure) => {
-                        return structureType == STRUCTURE_WALL;
+                        return structure.structureType == STRUCTURE_WALL;
                     }
                 });
             }
