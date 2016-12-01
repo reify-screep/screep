@@ -20,7 +20,7 @@ var roleReserver = {
         if (creep.reserveController(controller)) {
             creep.moveTo(controller);
         } else {
-            Memory.claimTargets[targetRoom].ticks = controller.reservation.ticksToEnd;
+            Memory.claimTargets[targetRoom].ticks = controller.reservation.ticksToEnd + Game.time;
         }
     },
 
@@ -29,7 +29,7 @@ var roleReserver = {
         for (var target in Memory.claimTargets) {
             var best = undefined;
             var ticks = Infinity; // ticks until unclaimed
-            if(Memory.claimTargets[target].ticks < ticks && Memory.claimTargets[target].worked == undefined) {
+            if(Memory.claimTargets[target].ticks - Game.time < ticks && Memory.claimTargets[target].worked == undefined) {
                 best = target;
             }
         }
@@ -40,7 +40,7 @@ var roleReserver = {
 
     expiringSoon: function() {
         for (var target in Memory.claimTargets) {
-            if(Memory.claimTargets[target].ticks < 2000) { // arbitrary?
+            if(Memory.claimTargets[target].ticks - Game.time < 2000) { // arbitrary?
                 return true;
             }
         }

@@ -10,9 +10,9 @@ roleSpawner = {
 	        'distanceHarvester': 4,
 	    };
 
-        if(!roleReserver.expiringSoon()) {
-            store['reserver'] = 0;
-        }
+        //if(!roleReserver.expiringSoon()) {
+        //    store['reserver'] = 0;
+        //}
 
 	    for(role in store) {
 	        var count = store[role];
