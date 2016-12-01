@@ -12,7 +12,6 @@ var roleDistanceHarvester = {
 
         // maybe do some roadwork
         if(creep.memory.harvesting == false && creep.carry.energy > 0) {
-            console.log(creep.name + ' maybe laying roads');
             roleDistanceHarvester.layOrRepairRoads(creep);
             // if a creep runs out of energy while doing roadwork, give it the previous harvest target
             // again as that is presumably closer
@@ -73,7 +72,6 @@ var roleDistanceHarvester = {
         var construction = creep.pos.lookFor(LOOK_CONSTRUCTION_SITES);
         if(structures.length != 0) {
             var roads = _.filter(structures, {'structureType': STRUCTURE_ROAD});
-            console.log(creep.name + ' found roads ' + roads);
             if(roads.length != 0) {
                 var road = roads[0];
                 // there is a road here, maybe repair it
@@ -84,11 +82,9 @@ var roleDistanceHarvester = {
         } else if(construction.length != 0) {
             var constructionSite = construction[0];
             // there is construction here, build it
-            console.log(creep.name + ' working on road');
             creep.build(constructionSite);
         } else {
             // nothing here, build a road
-            console.log(creep.name + ' building new road site');
             creep.pos.createConstructionSite(STRUCTURE_ROAD);
         }
 
