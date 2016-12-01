@@ -30,7 +30,7 @@ var roleReserver = {
             var best = undefined;
             var ticks = Infinity; // ticks until unclaimed
             if(Memory.claimTargets[target].ticks - Game.time < ticks && Memory.claimTargets[target].worked == undefined) {
-                Console.log(creep.name + ' is setting new best to ' + target + ' where worked == ' + Memory.claimTargets[target].worked);
+                console.log(creep.name + ' is setting new best to ' + target + ' where worked == ' + Memory.claimTargets[target].worked);
                 best = target;
             }
         }
