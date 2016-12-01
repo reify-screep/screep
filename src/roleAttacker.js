@@ -3,14 +3,22 @@ var _ = require('lodash')
 
 var roleAttacker = {
     run: function(creep) {
-        if(creep.room.name != Game.flags.attackTarget.room.name) {
-            creep.moveTo(Game.flags.attackTarget);
+        if(creep.room.name != Game.flags.gotime.room.name) {
+            creep.moveTo(Game.flags.gotime);
         } else {
             var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS);
             if(target == undefined) {
                 target = creep.pos.findClosestByPath(FIND_HOSTILE_STRUCTURES, {
                     filter: (structure) => {
                         return structure.structureType != STRUCTURE_CONTROLLER;
+                    }
+                });
+            }
+            // the wall
+            if(target == undefined) {
+                target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return structureType == STRUCTURE_WALL;
                     }
                 });
             }
