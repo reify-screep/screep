@@ -178,8 +178,8 @@ roleSpawner = {
     currentDistanceHarvesterBuild: function() {
         return roleSpawner.assembleBuild({
             WORK: 5, // 500 + 250
-            CARRY: 10, // 500 + 500
-            MOVE: 15,
+            CARRY: 15, // 500 + 500
+            MOVE: 10,
         })
     },
 }
