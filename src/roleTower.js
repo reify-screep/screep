@@ -17,7 +17,7 @@ roleTower = {
                 Memory.towerShots = Memory.towerShots + 1;
                 tower.attack(target);
             } else {
-                var repairTargets = tower.pos.findInRange(FIND_STRUCTURES, 5, { filter: structureNeedsRepairs });
+                var repairTargets = tower.pos.findInRange(FIND_STRUCTURES, 10, { filter: structureNeedsRepairs });
                 if (repairTargets[0] != undefined) {
                     tower.repair(repairTargets[0]);
                 }
