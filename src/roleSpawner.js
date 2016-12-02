@@ -5,7 +5,7 @@ roleSpawner = {
     run: function(roomId) {
 	    var store = {
 	        'harvester': 2,
-	        'worker': 6,
+	        'worker': 7,
 	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 9,
 	        //'attacker': 1,
