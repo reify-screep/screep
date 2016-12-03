@@ -123,6 +123,7 @@ actions = {
                    return structure.structureType != STRUCTURE_ROAD; // temporarily skip roads! remove!
                }
             });
+            console.log(creep.name + ' found build targets ' + targets);
             if(targets.length) {
                 creep.memory.buildTarget = targets[0].id;
                 creep.memory.buildPos = targets[0].pos;
