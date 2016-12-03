@@ -7,7 +7,7 @@ var roleDistanceHarvester = {
         var flags = [
             'distanceHarvestA',
             'distanceHarvestB',
-            'distanceHarvestC'
+            //'distanceHarvestC'
         ];
 
         // maybe do some roadwork
