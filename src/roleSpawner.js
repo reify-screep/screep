@@ -9,7 +9,7 @@ roleSpawner = {
 	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 6,
 	        //'claimer': 1,
-	        //'settler': 1
+	        'settler': 4,
 	        //'attacker': 1,
 	        //'sniper': 1,
 	    };
@@ -20,7 +20,7 @@ roleSpawner = {
 
 	    for(role in store) {
 	        var count = store[role];
-	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.home == roomId);
+	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role);// && creep.memory.home == roomId);
 	        if(creeps.length < count) {
 
 	            var build = undefined;
