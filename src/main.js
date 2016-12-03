@@ -19,6 +19,10 @@ module.exports.loop = function () {
     Memory.roadTarget = 'W7N68';
     Memory[Memory.home].spawns = ['Spawn1'];
 
+    if(Memory.claimTargets['W6N68']) {
+        Memory.claimTargets['W6N68'] = undefined;
+    }
+
     if(!Memory.claimTargets) {
         Memory.claimTargets = {};
     }
