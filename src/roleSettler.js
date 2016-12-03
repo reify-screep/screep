@@ -6,7 +6,7 @@ var roleSettler = {
 
         var dest = Game.flags.expansionTarget;
 
-        if(creep.room.name != dest.pos.room) {
+        if(creep.room.name != dest.room.name) {
             console.log(dest.pos.room);
             console.log(dest)
             console.log(dest.pos)
