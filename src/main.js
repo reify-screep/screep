@@ -15,7 +15,7 @@ var _ = require('lodash')
 module.exports.loop = function () {
 
     Memory.home = 'W8N68';
-    Memory.expansionTarget = 'W7N69';
+    Memory.expansionTarget = 'W6N68';
     Memory.roadTarget = 'W7N68';
     Memory[Memory.home].spawns = ['Spawn1'];
 
