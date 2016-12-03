@@ -7,6 +7,7 @@ var roleSettler = {
         var dest = Game.flags.expansionTarget;
 
         if(creep.room.name != dest.pos.room) {
+            console.log(dest.pos.room);
             creep.moveTo(dest);
         } else {
 
