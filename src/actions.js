@@ -117,6 +117,7 @@ actions = {
                 }
             }
         } else {
+            console.log('trying to build');
             // find something to build, and save it as the target
             var targets = creep.room.find(FIND_CONSTRUCTION_SITES, {
                 filter: (structure) => {
