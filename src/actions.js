@@ -131,6 +131,7 @@ actions = {
                 creep.memory.buildTarget = targets[0].id;
                 creep.memory.buildPos = targets[0].pos;
             } else {
+                console.log(creep.name + ' failed to find target in ' + targets);
                 creep.memory.state = 'deciding';
             }
         }
