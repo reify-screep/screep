@@ -12,6 +12,8 @@ var roleSettler = {
 
             if(creep.carry.energy == 0) {
                 creep.memory.state = 'settlerHarvesting';
+            } else if (creep.carry.energy == creep.carryCapacity) {
+                creep.memory.state = 'deciding';
             }
 
             var state = creep.memory.state;
