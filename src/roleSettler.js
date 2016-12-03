@@ -8,6 +8,9 @@ var roleSettler = {
 
         if(creep.room.name != dest.pos.room) {
             console.log(dest.pos.room);
+            console.log(dest)
+            console.log(dest.pos)
+            console.log(dest.room)
             creep.moveTo(dest);
         } else {
 
