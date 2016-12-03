@@ -4,8 +4,9 @@ var _ = require('lodash')
 var roleSettler = {
     run: function(creep) {
 
-        if(creep.room.name != creep.memory.home) {
-            var dest = Game.flags.expansionTarget;
+        var dest = Game.flags.expansionTarget;
+
+        if(creep.room.name != dest.pos.room) {
             creep.moveTo(dest);
         } else {
 

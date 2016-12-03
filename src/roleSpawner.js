@@ -9,6 +9,7 @@ roleSpawner = {
 	        'reserver': Object.keys(Memory.claimTargets).length,
 	        'distanceHarvester': 6,
 	        'claimer': 1,
+	        'settler': 1
 	        //'attacker': 1,
 	        //'sniper': 1,
 	    };
