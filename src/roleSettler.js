@@ -7,10 +7,6 @@ var roleSettler = {
         var dest = Game.flags.expansionTarget;
 
         if(creep.room.name != dest.room.name) {
-            console.log(dest.pos.room);
-            console.log(dest)
-            console.log(dest.pos)
-            console.log(dest.room)
             creep.moveTo(dest);
         } else {
 
@@ -22,6 +18,7 @@ var roleSettler = {
 
             if(state == 'deciding') {
                 actions.newJob(creep);
+                console.log(creep.memory.state);
                 state = creep.memory.state;
             }
 
