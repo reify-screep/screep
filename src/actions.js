@@ -118,7 +118,11 @@ actions = {
             }
         } else {
             // find something to build, and save it as the target
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            var targets = creep.room.find(FIND_CONSTRUCTION_SITES, {
+               filter: (structure) => {
+                   return structure.structureType != STRUCTURE_ROAD; // temporarily skip roads! remove!
+               }
+            });
             if(targets.length) {
                 creep.memory.buildTarget = targets[0].id;
                 creep.memory.buildPos = targets[0].pos;
