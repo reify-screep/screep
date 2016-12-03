@@ -95,6 +95,7 @@ actions = {
     },
 
     build: function(creep) {
+        console.log('trying to build early start');
         // try to build item at target, if invalid target, look for ramparts and repair them
         if('buildTarget' in creep.memory && creep.memory.buildTarget != null) {
             var target = Game.getObjectById(creep.memory.buildTarget);
