@@ -27,13 +27,13 @@ var roleSettler = {
             if(state == 'settlerHarvesting') {
                 actions.workerHarvest(creep);
             } else if(state == 'upgrading') {
-                actions.upgrade(creep);
+                actions.build(creep);
             } else if(state == 'storing') {
                 actions.storeEnergy(creep);
             } else if(state == 'building') {
                 actions.build(creep);
             } else if(state == 'repairing') {
-                actions.repair(creep);
+                actions.build(creep);
             }
 
         }
