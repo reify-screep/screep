@@ -17,7 +17,7 @@ roleSpawner = {
 	        },
 	        'W6N68': {
 	            'harvester': 2,
-	            'worker': 6,
+	            'worker': 7,
 	        }
 	    };
 
