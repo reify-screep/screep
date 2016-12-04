@@ -3,7 +3,7 @@
  */
 
 var structureNeedsRepairs = function(structure) {
-    return (structure.hits < structure.hitsMax * 0.8) && (structure.hits < 1000000);
+    return (structure.hits < structure.hitsMax * 0.8) && (structure.hits < 300000);
 }
 
 roleTower = {

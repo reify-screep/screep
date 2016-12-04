@@ -152,7 +152,7 @@ actions = {
             if(!actions.repairType(creep, STRUCTURE_RAMPART, .01)) {
                 if(!actions.repairType(creep, STRUCTURE_ROAD, .5)) {
                     if(!actions.repairType(creep, STRUCTURE_TOWER, 1)) {
-                        if(!actions.repairType(creep, STRUCTURE_WALL, .001)) {
+                        if(!actions.repairType(creep, STRUCTURE_WALL, .01)) {
                             creep.memory.state = 'deciding';
                         }
                     }
