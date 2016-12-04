@@ -69,6 +69,7 @@ roleSpawner = {
                     targetHome = Memory.expansionTarget;
                 }
 
+                console.log('about to spawn ' + role + ' at ' + spawnName + ' in room ' + roomId);
 		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: targetHome});
                 if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
@@ -123,7 +124,7 @@ roleSpawner = {
         } else if(spawnRoomCapacity >= 550) {
             return roleSpawner.assembleBuild({
                 WORK: 2,
-                CARRY: 3,
+                CARRY: 4,
                 MOVE: 3,
             })
         } else {
