@@ -2,9 +2,21 @@ var _ = require('lodash')
 
 dev = {
 
+    // to start, do not do anything clever. just check if a job is already being done before
+    // assigning it to someone.
     requestJob: function(creep) {
 
     },
+
+    // findBuildJob: function(creep) {
+    //
+    //     creep.findClosestByPath(FIND_MY_CONSTRUCTION_SITES, {
+    //         filter: (structure) => {
+    //             return true;
+    //         }
+    //     });
+    //
+    // },
 
     energyIn: function(target) {
         // todo : fill in with a switch on structure types
@@ -82,7 +94,7 @@ dev = {
             jobQueue[room].find(FIND_MY_CONSTRUCTION_SITES);
         }
 
-    },
+    }
 
 }
 
