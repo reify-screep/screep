@@ -29,16 +29,16 @@ roleSpawner = {
 
 	    for(role in store) {
 	        var count = store[role];
-	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role);// && creep.memory.home == roomId);
+	        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.home == roomId);
 	        if(creeps.length < count) {
 
 	            var build = undefined;
 	            switch (role) {
                     case 'harvester':
-                        build = roleSpawner.currentHarvesterBuild();
+                        build = roleSpawner.currentHarvesterBuild(roomId);
                         break;
 	                case 'worker':
-	                    build = roleSpawner.currentWorkerBuild();
+	                    build = roleSpawner.currentWorkerBuild(roomId);
 	                    break;
 	                case 'roadLayer':
 	                    build = roleSpawner.currentWorkerBuild();
@@ -107,8 +107,8 @@ roleSpawner = {
         return build;
     },
 
-    currentWorkerBuild: function() {
-        var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
+    currentWorkerBuild: function(roomId) {
+        var spawnRoomCapacity = Game.rooms[roomId].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
                 WORK: 4,
@@ -132,8 +132,8 @@ roleSpawner = {
         }
     },
 
-    currentHarvesterBuild: function() {
-        var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
+    currentHarvesterBuild: function(roomId) {
+        var spawnRoomCapacity = Game.rooms[roomId].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
                 WORK: 6,
