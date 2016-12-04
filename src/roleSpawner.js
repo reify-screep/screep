@@ -14,7 +14,7 @@ roleSpawner = {
                 //'settler': 4,
                 //'attacker': 1,
                 //'sniper': 1,
-	        }
+	        },
 	        'W6N68': {
 	            'harvester': 2,
 	            'worker': 6,
