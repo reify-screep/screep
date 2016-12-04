@@ -4,19 +4,23 @@ var _ = require('lodash')
 var roleSettler = {
     run: function(creep) {
 
-        if(creep.room.name != creep.memory.home) {
-            var dest = Game.flags.expansionTarget;
+        var dest = Game.flags.expansionTarget;
+
+        if(creep.room.name != dest.room.name) {
             creep.moveTo(dest);
         } else {
 
             if(creep.carry.energy == 0) {
                 creep.memory.state = 'settlerHarvesting';
+            } else if (creep.carry.energy == creep.carryCapacity) {
+                creep.memory.state = 'deciding';
             }
 
             var state = creep.memory.state;
 
             if(state == 'deciding') {
                 actions.newJob(creep);
+                console.log(creep.memory.state);
                 state = creep.memory.state;
             }
 

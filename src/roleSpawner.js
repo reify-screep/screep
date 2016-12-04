@@ -1,11 +1,31 @@
+var roleReserver = require('roleReserver')
+
 roleSpawner = {
 
     run: function(roomId) {
-	    var store = {
-	        'harvester': 2,
-	        'worker': 4,
-	        'reserver': 1,
+
+	    var roomStore = {
+	        'W8N68': {
+                'harvester': 2,
+                'worker': 7,
+                'reserver': Object.keys(Memory.claimTargets).length,
+                'distanceHarvester': 6,
+                //'claimer': 1,
+                //'settler': 4,
+                //'attacker': 1,
+                //'sniper': 1,
+	        },
+	        'W6N68': {
+	            'harvester': 2,
+	            'worker': 10,
+	        }
 	    };
+
+	    var store = roomStore[roomId];
+
+        if(!roleReserver.expiringSoon()) {
+            store['reserver'] = 0;
+        }
 
 	    for(role in store) {
 	        var count = store[role];
@@ -15,10 +35,10 @@ roleSpawner = {
 	            var build = undefined;
 	            switch (role) {
                     case 'harvester':
-                        build = roleSpawner.currentHarvesterBuild();
+                        build = roleSpawner.currentHarvesterBuild(roomId);
                         break;
 	                case 'worker':
-	                    build = roleSpawner.currentWorkerBuild();
+	                    build = roleSpawner.currentWorkerBuild(roomId);
 	                    break;
 	                case 'roadLayer':
 	                    build = roleSpawner.currentWorkerBuild();
@@ -32,6 +52,15 @@ roleSpawner = {
                     case 'settler':
                         build = roleSpawner.currentSettlerBuild();
                         break;
+                    case 'attacker':
+                        build = roleSpawner.currentAttackerBuild();
+                        break;
+                    case 'distanceHarvester':
+                        build = roleSpawner.currentDistanceHarvesterBuild();
+                        break;
+                    case 'sniper':
+                        build = roleSpawner.currentSniperBuild();
+                        break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
 
@@ -40,6 +69,7 @@ roleSpawner = {
                     targetHome = Memory.expansionTarget;
                 }
 
+                console.log('about to spawn ' + role + ' at ' + spawnName + ' in room ' + roomId);
 		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: targetHome});
                 if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
@@ -63,6 +93,12 @@ roleSpawner = {
                     case 'MOVE':
                         partCode = MOVE;
                         break;
+                    case 'ATTACK':
+                        partCode = ATTACK;
+                        break;
+                     case 'RANGED_ATTACK':
+                         partCode = RANGED_ATTACK;
+                         break;
                 }
 
                 build.push(partCode);
@@ -71,50 +107,50 @@ roleSpawner = {
         return build;
     },
 
-    currentWorkerBuild: function() {
-        var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
+    currentWorkerBuild: function(roomId) {
+        var spawnRoomCapacity = Game.rooms[roomId].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
                 WORK: 4,
-                CARRY: 7,
-                MOVE: 11,
+                CARRY: 8,
+                MOVE: 6,
             })
         } else if(spawnRoomCapacity >= 800) {
             return roleSpawner.assembleBuild({
                 WORK: 2,
-                CARRY: 5,
-                MOVE: 7,
+                CARRY: 6,
+                MOVE: 4,
             })
         } else if(spawnRoomCapacity >= 550) {
             return roleSpawner.assembleBuild({
                 WORK: 2,
-                CARRY: 3,
-                MOVE: 4,
+                CARRY: 4,
+                MOVE: 3,
             })
         } else {
             return [WORK,CARRY,MOVE];
         }
     },
 
-    currentHarvesterBuild: function() {
-        var spawnRoomCapacity = Game.rooms[Memory.home].energyCapacityAvailable;
+    currentHarvesterBuild: function(roomId) {
+        var spawnRoomCapacity = Game.rooms[roomId].energyCapacityAvailable;
         if(spawnRoomCapacity >= 1300) {
             return roleSpawner.assembleBuild({
                 WORK: 6,
                 CARRY: 4,
-                MOVE: 6,
+                MOVE: 3,
             })
         } else if(spawnRoomCapacity >= 800) {
             return roleSpawner.assembleBuild({
                 WORK: 4,
                 CARRY: 4,
-                MOVE: 4,
+                MOVE: 2,
             })
         } else if(spawnRoomCapacity >= 550) {
             return roleSpawner.assembleBuild({
                 WORK: 3,
-                CARRY: 2,
-                MOVE: 3,
+                CARRY: 3,
+                MOVE: 2,
             })
         } else {
             return [WORK,CARRY,MOVE];
@@ -134,6 +170,28 @@ roleSpawner = {
             WORK: 4,
             CARRY: 4,
             MOVE: 8,
+        })
+    },
+
+    currentAttackerBuild: function() {
+        return roleSpawner.assembleBuild({
+            ATTACK: 10,
+            MOVE: 10,
+        })
+    },
+
+    currentSniperBuild: function() {
+        return roleSpawner.assembleBuild({
+            RANGED_ATTACK: 1,
+            MOVE: 1,
+        })
+    },
+
+    currentDistanceHarvesterBuild: function() {
+        return roleSpawner.assembleBuild({
+            WORK: 5, // 500 + 250
+            CARRY: 15, // 500 + 500
+            MOVE: 10,
         })
     },
 }

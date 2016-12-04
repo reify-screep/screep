@@ -51,7 +51,10 @@ actions = {
             storage = lib.containerWithEnergy(creep.pos, 1000);
         }
         if(storage == undefined) {
-            storage = lib.containerWithEnergy(creep.pos, 100);
+            storage = lib.containerWithEnergy(creep.pos, 400);
+        }
+        if(storage == undefined) {
+            storage = Game.rooms[Memory.home].storage;
         }
 
         switch(creep.withdraw(storage, RESOURCE_ENERGY)) {
@@ -92,6 +95,7 @@ actions = {
     },
 
     build: function(creep) {
+        console.log('trying to build early start');
         // try to build item at target, if invalid target, look for ramparts and repair them
         if('buildTarget' in creep.memory && creep.memory.buildTarget != null) {
             var target = Game.getObjectById(creep.memory.buildTarget);
@@ -115,7 +119,12 @@ actions = {
             }
         } else {
             // find something to build, and save it as the target
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);//, {
+//                filter: (structure) => {
+//                    console.log(creep.name + ' ' + structure + ' ' + structure.structureType);
+//                    return structure.structureType != STRUCTURE_ROAD; // temporarily skip roads! remove!
+//                }
+//            });
             if(targets.length) {
                 creep.memory.buildTarget = targets[0].id;
                 creep.memory.buildPos = targets[0].pos;
@@ -143,7 +152,7 @@ actions = {
             if(!actions.repairType(creep, STRUCTURE_RAMPART, .01)) {
                 if(!actions.repairType(creep, STRUCTURE_ROAD, .5)) {
                     if(!actions.repairType(creep, STRUCTURE_TOWER, 1)) {
-                        if(!actions.repairType(creep, STRUCTURE_WALL, .0001)) {
+                        if(!actions.repairType(creep, STRUCTURE_WALL, .01)) {
                             creep.memory.state = 'deciding';
                         }
                     }

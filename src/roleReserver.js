@@ -4,10 +4,13 @@ var _ = require('lodash')
 var roleReserver = {
     run: function(creep) {
 
-        var targetRoom = 'W7N69';
+        if(creep.memory.claimTarget == undefined) {
+            roleReserver.getClaimTarget(creep);
+        }
+        var targetRoom = creep.memory.claimTarget;
 
         if(Game.rooms[targetRoom] == undefined) {
-            var targetPos = Game.flags.expansionTarget;
+            var targetPos = RoomPosition(25, 25, targetRoom);
             creep.moveTo(targetPos);
             return;
         }
@@ -16,8 +19,33 @@ var roleReserver = {
 
         if (creep.reserveController(controller)) {
             creep.moveTo(controller);
+        } else {
+            Memory.claimTargets[targetRoom].ticks = controller.reservation.ticksToEnd + Game.time;
         }
-    }
+    },
+
+    getClaimTarget: function(creep) {
+        var best = undefined;
+        var ticks = Infinity; // ticks until unclaimed
+        for (var target in Memory.claimTargets) {
+            if(Memory.claimTargets[target].ticks - Game.time < ticks && Memory.claimTargets[target].worked == undefined) {
+                console.log(creep.name + ' is setting new best to ' + target + ' where worked == ' + Memory.claimTargets[target].worked);
+                best = target;
+            }
+        }
+        Memory.claimTargets[best].worked = creep.name;
+        creep.memory.claimTarget = best;
+
+    },
+
+    expiringSoon: function() {
+        for (var target in Memory.claimTargets) {
+            if(Memory.claimTargets[target].ticks - Game.time < 2000) { // arbitrary?
+                return true;
+            }
+        }
+        return false;
+    },
 };
 
 module.exports = roleReserver;

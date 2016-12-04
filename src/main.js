@@ -7,14 +7,32 @@ var roleReserver = require('roleReserver')
 var roleClaimer = require('roleClaimer')
 var roleSettler = require('roleSettler')
 var roleRoadlayer = require('roleRoadlayer')
+var roleAttacker = require('roleAttacker')
+var roleDistanceHarvester = require('roleDistanceHarvester')
+var roleSniper = require('roleSniper')
 var _ = require('lodash')
 
 module.exports.loop = function () {
 
     Memory.home = 'W8N68';
-    Memory.expansionTarget = 'W7N69';
+    Memory.expansionTarget = 'W6N68';
     Memory.roadTarget = 'W7N68';
     Memory[Memory.home].spawns = ['Spawn1'];
+    Memory[Memory.expansionTarget].spawns = ['spawn2'];
+
+    if(Memory.claimTargets['W6N68']) {
+        Memory.claimTargets['W6N68'] = undefined;
+    }
+
+    if(!Memory.claimTargets) {
+        Memory.claimTargets = {};
+    }
+    if(!Memory.claimTargets['W7N69']) {
+        Memory.claimTargets['W7N69'] = {};
+    }
+    if(!Memory.claimTargets['W7N68']) {
+        Memory.claimTargets['W7N68'] = {};
+    }
 
     memoryManager.collect();
     memoryManager.updateStructureStore(Memory.home);
@@ -27,6 +45,9 @@ module.exports.loop = function () {
 
     roleSpawner.run(Memory.home);
     roleTower.run(Memory.home);
+
+    roleSpawner.run(Memory.expansionTarget);
+    roleTower.run(Memory.expansionTarget);
 
     for(var name in Game.creeps) {
 	    var creep = Game.creeps[name];
@@ -48,6 +69,15 @@ module.exports.loop = function () {
                 break;
             case 'roadLayer':
                 roleRoadlayer.run(creep);
+                break;
+            case 'attacker':
+                roleAttacker.run(creep);
+                break;
+            case 'distanceHarvester':
+                roleDistanceHarvester.run(creep);
+                break;
+            case 'sniper':
+                roleSniper.run(creep);
                 break;
 	    }
     }

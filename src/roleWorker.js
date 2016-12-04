@@ -5,7 +5,7 @@ var roleWorker = {
 
     run: function(creep) {
 
-        if(creep.room.name != Memory.home) {
+        if(creep.room.name != creep.memory.home) {
             actions.goHome(creep);
         } else {
 
