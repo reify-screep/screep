@@ -5,7 +5,7 @@ roleSpawner = {
     run: function(roomId) {
 
 	    var roomStore = {
-	        Memory.home: {
+	        'W8N68': {
                 'harvester': 2,
                 'worker': 7,
                 'reserver': Object.keys(Memory.claimTargets).length,
@@ -15,7 +15,7 @@ roleSpawner = {
                 //'attacker': 1,
                 //'sniper': 1,
 	        }
-	        Memory.expansionTarget: {
+	        'W6N68': {
 	            'harvester': 2,
 	            'worker': 6,
 	        }
