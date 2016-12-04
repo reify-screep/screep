@@ -3,16 +3,25 @@ var roleReserver = require('roleReserver')
 roleSpawner = {
 
     run: function(roomId) {
-	    var store = {
-	        'harvester': 2,
-	        'worker': 7,
-	        'reserver': Object.keys(Memory.claimTargets).length,
-	        'distanceHarvester': 6,
-	        //'claimer': 1,
-	        'settler': 4,
-	        //'attacker': 1,
-	        //'sniper': 1,
+
+	    var roomStore = {
+	        Memory.home: {
+                'harvester': 2,
+                'worker': 7,
+                'reserver': Object.keys(Memory.claimTargets).length,
+                'distanceHarvester': 6,
+                //'claimer': 1,
+                //'settler': 4,
+                //'attacker': 1,
+                //'sniper': 1,
+	        }
+	        Memory.expansionTarget: {
+	            'harvester': 2,
+	            'worker': 6,
+	        }
 	    };
+
+	    var store = roomStore[roomId];
 
         if(!roleReserver.expiringSoon()) {
             store['reserver'] = 0;

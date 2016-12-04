@@ -45,6 +45,9 @@ module.exports.loop = function () {
     roleSpawner.run(Memory.home);
     roleTower.run(Memory.home);
 
+    roleSpawner.run(Memory.expansionTarget);
+    roleTower.run(Memory.expansionTarget);
+
     for(var name in Game.creeps) {
 	    var creep = Game.creeps[name];
 	    switch (creep.memory.role) {
