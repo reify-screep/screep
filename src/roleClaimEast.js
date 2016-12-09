@@ -6,7 +6,7 @@ var roleClaimEast = {
         var targetRoom = "W5N68";
 
         if(Game.rooms[targetRoom] == undefined) {
-            var targetPos = RoomPosition(25, 25, targetRoom);
+            var targetPos = new RoomPosition(25, 25, targetRoom);
             creep.moveTo(targetPos);
             return;
         }
