@@ -10,6 +10,8 @@ var roleRoadlayer = require('roleRoadlayer')
 var roleAttacker = require('roleAttacker')
 var roleDistanceHarvester = require('roleDistanceHarvester')
 var roleSniper = require('roleSniper')
+var roleClaimEast = require('roleClaimEast')
+var roleClaimSEast = require('roleClaimSEast')
 var _ = require('lodash')
 
 module.exports.loop = function () {
@@ -78,6 +80,12 @@ module.exports.loop = function () {
                 break;
             case 'sniper':
                 roleSniper.run(creep);
+                break;
+            case 'claimEast':
+                roleClaimEast.run(creep);
+                break;
+            case 'claimSEast':
+                roleClaimSEast.run(creep);
                 break;
 	    }
     }

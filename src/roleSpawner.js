@@ -18,6 +18,8 @@ roleSpawner = {
 	        'W6N68': {
 	            'harvester': 2,
 	            'worker': 10,
+                'roleClaimEast': 1,
+                'roleClaimSEast': 1,
 	        }
 	    };
 
@@ -60,6 +62,12 @@ roleSpawner = {
                         break;
                     case 'sniper':
                         build = roleSpawner.currentSniperBuild();
+                        break;
+                    case 'claimEast':
+                        build = roleSpawner.currentReserverBuild();
+                        break;
+                    case 'claimSEast':
+                        build = roleSpawner.currentReserverBuild();
                         break;
 	            }
                 var spawnName = Memory[roomId].spawns[0];
