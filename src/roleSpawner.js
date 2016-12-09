@@ -77,7 +77,7 @@ roleSpawner = {
                     targetHome = Memory.expansionTarget;
                 }
 
-                console.log('about to spawn ' + role + ' at ' + spawnName + ' in room ' + roomId + ' arg is ' + targetHome);
+                console.log('about to spawn ' + role + ' at ' + spawnName + ' in room ' + roomId + ' arg is ' + targetHome + ' build is ' + build);
 		        var newName = Game.spawns[spawnName].createCreep(build, undefined, {role: role, home: targetHome});
                 if(newName != ERR_BUSY && newName != ERR_NOT_ENOUGH_ENERGY) {
                     console.log('spawning new ' + role + ': ' + newName);
