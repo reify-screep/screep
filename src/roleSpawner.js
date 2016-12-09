@@ -18,8 +18,8 @@ roleSpawner = {
 	        'W6N68': {
 	            'harvester': 2,
 	            'worker': 10,
-                'roleClaimEast': 1,
-                'roleClaimSEast': 1,
+                'claimEast': 1,
+                'claimSEast': 1,
 	        }
 	    };
 
